@@ -40,7 +40,7 @@ $result= $dbh->query($sql);
 foreach ($result as $row) {
     echo "
     <h2>Id</h2>
-    <h2>{$row["idid, date"]}</h2>
+    <h2>{$row["id"]}</h2>
     <h4>data del messaggio</h4>
     <p>{$row["date"]}</p>
     <h4>Mesaggio</h4>
