@@ -19,7 +19,7 @@ echo "<br><br>";
 //    die();
 //};
 /** @var PDO $dbh */
-$sql = "SELECT messages.id, messages.date, messages.text, messages.ticket_id, messages.operator_id, messages.user_id FROM messages JOIN tickets ON tickets.id=messages.id WHERE tickets.id=1";
+$sql = "SELECT messages.id, messages.date, messages.text, messages.ticket_id, messages.operator_id, messages.user_id FROM messages  WHERE ticket_id=".$_GET['ticket_id'];
 
 
 $result= $dbh->query($sql);
@@ -36,6 +36,7 @@ $result= $dbh->query($sql);
 
 </head>
 <body>
+
 <?php
 foreach ($result as $row) {
     echo "
