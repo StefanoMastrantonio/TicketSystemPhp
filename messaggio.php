@@ -19,7 +19,7 @@ echo "<br><br>";
 //    die();
 //};
 /** @var PDO $dbh */
-$sql = "SELECT * FROM messages";
+$sql = "SELECT messages.id, messages.date, messages.text, messages.ticket_id, messages.operator_id, messages.user_id FROM messages JOIN tickets ON tickets.id=messages.id WHERE tickets.id=1";
 
 
 $result= $dbh->query($sql);
@@ -40,7 +40,7 @@ $result= $dbh->query($sql);
 foreach ($result as $row) {
     echo "
     <h2>Id</h2>
-    <h2>{$row["id   "]}</h2>
+    <h2>{$row["idid, date"]}</h2>
     <h4>data del messaggio</h4>
     <p>{$row["date"]}</p>
     <h4>Mesaggio</h4>

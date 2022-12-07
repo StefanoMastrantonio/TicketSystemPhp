@@ -1,4 +1,8 @@
 <?php
+session_start();
+//$_SESSION['valore']= 'Testo da conservare';
+//$_SESSION['ora']=date ("G:i:s");
+print_r($_SESSION);
 require_once('config.php');
 print_r ($_POST);
 echo "<br><br>";
@@ -30,6 +34,7 @@ catch (PDOException $e)
 </head>
 <body>
 <!--Form di invio Ticket a Lista Tickets-->
+<?php var_dump($_SESSION); ?>
 <div>
     <h2>Inserire dati ticket</h2>
     <form method="post" action="ticket_form_page.php">
@@ -53,6 +58,8 @@ catch (PDOException $e)
         </select>
         <input type="submit" name="submit" value="Sent">
     </form>
+    <form action="logout.php" method="post"><button type="submit" >Log out</button></form>
+
 </div>
 </body>
 </html>

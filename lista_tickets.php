@@ -1,4 +1,6 @@
 <?php
+session_start();
+print_r($_SESSION);
 require_once('config.php');
 print_r ($_POST);
 echo "<br><br>";
@@ -18,7 +20,7 @@ catch (PDOException $e)
     die();
 };
 
-$sql = "SELECT * FROM tickets JOIN users ON tickets.ticket_id=users.id";
+$sql = "SELECT * FROM tickets JOIN users ON tickets.user_id=users.id";
 
 $result= $dbh->query($sql);
 //print_r($result);
@@ -39,6 +41,7 @@ $result= $dbh->query($sql);
 
 </head>
 <body>
+<form action="logout.php" method="post"><button type="submit" >Log out</button></form>
 <table border="1" cellspacing="0" cellpadding="10">
     <thead>
     <tr>
