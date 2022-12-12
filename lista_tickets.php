@@ -1,6 +1,9 @@
 <?php
 session_start();
-print_r($_SESSION);
+$sessionid= $_SESSION['id'];
+if($sessionid =="") {
+    header('location: registrer.php');
+}
 require_once('config.php');
 print_r ($_POST);
 echo "<br><br>";
@@ -17,13 +20,12 @@ try {
 catch (PDOException $e)
 {
     print $e->getMessage();
-    die();
 };
 
-$sql = "SELECT * FROM tickets JOIN users ON tickets.user_id=users.id";
+$sql = "SELECT * FROM tickets";
 
 $result= $dbh->query($sql);
-//print_r($result);
+print_r($result);
 
 //foreach ($result as $row) {
 ////    var_dump($row);

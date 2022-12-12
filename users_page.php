@@ -1,11 +1,7 @@
 <?php
 session_start();
-//$_SESSION['valore']= 'Testo da conservare';
-//$_SESSION['ora']=date ("G:i:s");
-print_r($_SESSION);
+
 require_once('config.php');
-print_r ($_POST);
-echo "<br><br>";
 
 try {
     /** @var PDO $dbh */
@@ -13,12 +9,10 @@ try {
     $stmt->bindParam(':email', $_POST['email']);
     $stmt->bindParam(':password', $_POST['password']);
     $stmt->execute();
-    echo "Inserimento ok";
 }
 catch (PDOException $e)
 {
     print $e->getMessage();
-    die();
 };
 ?>
 
@@ -34,7 +28,6 @@ catch (PDOException $e)
 </head>
 <body>
 <!--Form di invio Ticket a Lista Tickets-->
-<?php var_dump($_SESSION); ?>
 <div>
     <h2>Inserire dati ticket</h2>
     <form method="post" action="ticket_form_page.php">

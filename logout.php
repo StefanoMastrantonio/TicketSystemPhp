@@ -1,8 +1,12 @@
 <?php
 session_start();
+$username = $_SESSION['username'];
+$password = $_SESSION['password'];
+$_SESSION = array();
+header("Location: ../form_login.php");
 if ($_SERVER['REQUEST_METHOD']=="POST") {
     session_destroy();
-    header("Location: form.php");
+    header("Location: form_registrazione.php");
 }
 
 require_once('config.php');
