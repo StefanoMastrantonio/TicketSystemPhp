@@ -58,11 +58,9 @@ if ($_POST['goto'] == "0") {
                 $_SESSION['id'] = $row['id'];
                 header("location: users_page.php");
             } else {
-                header("location: registrer.php");
+                header("location: registrer_user.php");
             }
         }
     }
 }
-
-
 ?>
