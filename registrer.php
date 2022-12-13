@@ -34,7 +34,7 @@ if ($_POST['goto'] == "0") {
     <label for="password">Password</label>
     <input type="password" id="password" name="password"><br><br>
 
-    <button type="submit" formaction="lista_tickets . php">Submit to another page</button>
+    <button type="submit">Submit to another page</button>
     <input type="hidden" name="goto" value="0">
 </form>
 

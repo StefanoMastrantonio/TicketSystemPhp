@@ -22,7 +22,7 @@ if ($_POST['goto'] == "1") {
 </head>
 <body>
 <h2>Registrati</h2>
-<form action="user_page.php" method="post">
+<form action="users_page.php" method="post">
 
     <label for="email">Email</label>
     <input type="email" id="email" name="email"><br><br>
@@ -30,7 +30,7 @@ if ($_POST['goto'] == "1") {
     <label for="password">Password</label>
     <input type="password" id="password" name="password"><br><br>
 
-    <button type="submit" formaction="users_page.php">Submit to another page</button>
+    <button type="submit">Submit to another page</button>
     <input type="hidden" name="goto" value="0">
 </form>
 </body>

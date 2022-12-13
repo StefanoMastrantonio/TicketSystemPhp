@@ -1,30 +1,11 @@
 <?php
-
 require_once('config.php');
-print_r ($_POST);
 echo "<br><br>";
-//
-//try {
-//    /** @var PDO $dbh */
-//    $stmt = $dbh->prepare("INSERT INTO operators (name, email, password) VALUES (:name, :email, :password)");
-//    $stmt->bindParam(':name', $_POST['name']);
-//    $stmt->bindParam(':email', $_POST['email']);
-//    $stmt->bindParam(':password', $_POST['password']);
-//    $stmt->execute();
-//    echo "Inserimento ok";
-//}
-//catch (PDOException $e)
-//{
-//    print $e->getMessage();
-//    die();
-//};
 /** @var PDO $dbh */
 $sql = "SELECT messages.id, messages.date, messages.text, messages.ticket_id, messages.operator_id, messages.user_id FROM messages  WHERE ticket_id=".$_GET['ticket_id'];
 
-
 $result= $dbh->query($sql);
 ?>
-
 <!doctype html>
 <html lang="en">
 <head>

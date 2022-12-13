@@ -2,13 +2,12 @@
 session_start();
 
 require_once('config.php');
-
 try {
     /** @var PDO $dbh */
-    $stmt = $dbh->prepare("INSERT INTO users (email, password) VALUES (:email, :password)");
-    $stmt->bindParam(':email', $_POST['email']);
-    $stmt->bindParam(':password', $_POST['password']);
+    $stmt = $dbh->prepare("INSERT INTO tickets (user_id) VALUES (:user_id)");
+    $stmt->bindParam(':user_id', $_POST['user_id']);
     $stmt->execute();
+    echo "Inserimento ok";
 }
 catch (PDOException $e)
 {
@@ -30,7 +29,7 @@ catch (PDOException $e)
 <!--Form di invio Ticket a Lista Tickets-->
 <div>
     <h2>Inserire dati ticket</h2>
-    <form method="post" action="ticket_form_page.php">
+    <form method="post" target="_blank" action="ticket_form_page.php">
         <h3>Titolo</h3>
         <input type="text" name="title" id="">
         <h3>Messaggio</h3>

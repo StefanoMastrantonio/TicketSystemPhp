@@ -21,6 +21,11 @@ require_once('config.php');
 
 <!--Form di Accesso per L'operatore che indirizza a Lista Tickets-->
 
+<?php
+if (isset($_SESSION['msg'])) {
+echo $_SESSION['msg'];
+}
+?>
     <div>
         <h2>Accesso Operatore</h2>
         <form action="login.php" method="post">
