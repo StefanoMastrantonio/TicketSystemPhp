@@ -24,7 +24,6 @@ catch (PDOException $e)
 
 $sql = "SELECT * FROM tickets";
 $result= $dbh->query($sql);
-print_r($result);
 
 ?>
 

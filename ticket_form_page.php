@@ -12,6 +12,11 @@ if (isset($_POST['title']) && isset($_POST['category_id']) && isset($_POST['prio
         $stmt = $dbh->prepare("INSERT INTO messages (text) VALUES (:text)");
         $stmt->bindParam(':text', $_POST['text']);
         $stmt->execute();
+        $stmt = $dbh->prepare("INSERT INTO tickets (user_id) SELECT id FROM users");
+        $stmt->execute();
+        $stmt = $dbh->prepare("INSERT INTO tickets (operator_id) SELECT id FROM operators");
+        $stmt->execute();
+
         $id = $dbh->lastInsertId();
     } catch (PDOException $e) {
         print $e->getMessage();

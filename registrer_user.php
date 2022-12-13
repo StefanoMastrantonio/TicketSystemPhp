@@ -4,7 +4,7 @@ require_once('config.php');
 if ($_POST['goto'] == "1") {
     try {
         /** @var PDO $dbh */
-        $stmt = $dbh->prepare("INSERT INTO tickets (email, password) VALUES (:email, :password)");
+        $stmt = $dbh->prepare("INSERT INTO users (email, password) VALUES (:email, :password)");
         $stmt->bindParam(':email', $_POST['email']);
         $stmt->bindParam(':password', $_POST['password']);
         $stmt->execute();
