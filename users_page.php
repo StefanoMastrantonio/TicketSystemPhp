@@ -36,7 +36,7 @@ catch (PDOException $e)
         <h3>Messaggio</h3>
         <input type="textarea" name="text">
         <h3>Categoria</h3>
-        <select name="category_id">
+        <select name="name">
             <option value="0"></option>
             <option value="1">Categoria 1</option>
             <option value="2">Categoria 2</option>
