@@ -72,7 +72,7 @@ $result= $dbh->query($sql);
         <td>{$row["priority"]}</td>
         <td>{$row["status"]}</td>
         <td>{$row["user_feedback"]}</td>
-        <th><a href='messaggio.php?ticket_id={$row["id"]}' > dettaglio messaggio</a></th>
+        <th><a href='messaggio.php?ticket_id={$row["id"]}'>dettaglio messaggio</a></th>
     </tr>";
     }
     ?>

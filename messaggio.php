@@ -7,8 +7,9 @@ if (isset($_POST['text'])) {
     $ticket_id = $_GET['ticket_id'];
     $text = $_POST['text'];
     $operator_id = $_SESSION['id'];
+    $user_id = $_SESSION['id'];
 
-    $sql = "INSERT INTO `messages` (`text`, `ticket_id`, `operator_id`) VALUES ('$text', '$ticket_id', '$operator_id')";
+    $sql = "INSERT INTO `messages` (`text`, `ticket_id`, `operator_id`, `user_id` ) VALUES ('$text', '$ticket_id', '$operator_id', '$user_id')";
 
     /** @var PDO $dbh */
     $result= $dbh->query($sql);

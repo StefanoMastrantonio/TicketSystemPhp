@@ -17,13 +17,9 @@ if (isset($_POST['title']) && isset($_POST['name']) && isset($_POST['priority'])
         //    $stmt = $dbh->prepare( "SELECT id FROM categories");
         //   $stmt = $dbh->prepare("INSERT INTO tickets (category_id) SELECT categories.id FROM categories");
         //   $stmt->execute();
-
         //   $stmt = $dbh->prepare("SELECT operators.id, users.id FROM operators, users");
         //    $stmt = $dbh->prepare("INSERT INTO tickets (operator_id, user_id) SELECT operators.id, users.id FROM operators, users");
         //    $stmt->execute();
-
-
-
         //  $stmt = $dbh->prepare("INSERT INTO categories (name) VALUES (:name)");
         //   $stmt->bindParam(':name', $_POST['name']);
         //  $stmt->execute();
@@ -54,3 +50,4 @@ JOIN `categories` ON `categories`.`id` = `tickets`.`category_id`
  *
  */
 ?>
+
