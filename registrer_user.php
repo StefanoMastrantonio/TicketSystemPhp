@@ -2,12 +2,14 @@
 session_start();
 require_once('config.php');
 if ($_POST['goto'] == "1") {
+
     try {
         /** @var PDO $dbh */
         $stmt = $dbh->prepare("INSERT INTO users (email, password) VALUES (:email, :password)");
         $stmt->bindParam(':email', $_POST['email']);
         $stmt->bindParam(':password', $_POST['password']);
         $stmt->execute();
+
     } catch (PDOException $e) {
         print $e->getMessage();
     };
@@ -18,7 +20,7 @@ if ($_POST['goto'] == "1") {
     <meta name="viewport"
           content="width = device - width, user - scalable = no, initial - scale = 1.0, maximum - scale = 1.0, minimum - scale = 1.0">
     <meta http-equiv="X - UA - Compatible" content="ie = edge">
-    <title>Registrazione operatore</title>
+    <title>Registrazione utente</title>
 </head>
 <body>
 <h2>Registrati</h2>

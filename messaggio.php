@@ -1,6 +1,19 @@
 <?php
 require_once('config.php');
 echo "<br><br>";
+session_start();
+
+if (isset($_POST['text'])) {
+    $ticket_id = $_GET['ticket_id'];
+    $text = $_POST['text'];
+    $operator_id = $_SESSION['id'];
+
+    $sql = "INSERT INTO `messages` (`text`, `ticket_id`, `operator_id`) VALUES ('$text', '$ticket_id', '$operator_id')";
+
+    /** @var PDO $dbh */
+    $result= $dbh->query($sql);
+
+}
 /** @var PDO $dbh */
 $sql = "SELECT messages.id, messages.date, messages.text, messages.ticket_id, messages.operator_id, messages.user_id FROM messages  WHERE ticket_id=".$_GET['ticket_id'];
 
@@ -17,7 +30,6 @@ $result= $dbh->query($sql);
 
 </head>
 <body>
-
 <?php
 foreach ($result as $row) {
     echo "
@@ -36,5 +48,12 @@ foreach ($result as $row) {
     ";
 }
 ?>
+
+<h1>Rispondi al ticket</h1>
+
+<form method="post">
+    <textarea name="text"></textarea>
+    <input type="submit" value="Invia">
+</form>
 
 </body>

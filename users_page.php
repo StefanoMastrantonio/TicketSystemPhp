@@ -28,9 +28,11 @@ catch (PDOException $e)
 </head>
 <body>
 <!--Form di invio Ticket a Lista Tickets-->
+
+<h1>Compila i dati per il ticket</h1>
 <div>
     <h2>Inserire dati ticket</h2>
-    <form method="post" target="_blank" action="ticket_form_page.php">
+    <form method="post" action="messaggio.php">
         <h3>Titolo</h3>
         <input type="text" name="title" id="">
         <h3>Messaggio</h3>
@@ -38,9 +40,8 @@ catch (PDOException $e)
         <h3>Categoria</h3>
         <select name="name">
             <option value="0"></option>
-            <option value="1">Categoria 1</option>
-            <option value="2">Categoria 2</option>
-            <option value="3">Categoria 3</option>
+            <option value="1">Assistenza Commerciale</option>
+            <option value="2">Assistenza Tecnica</option>
         </select>
         <h3>Priorità</h3>
         <select name="priority">
@@ -54,5 +55,7 @@ catch (PDOException $e)
     <form action="logout.php" method="post"><button type="submit" >Log out</button></form>
 
 </div>
+
+<h2>Lista Ticket inviati</h2>
 </body>
 </html>
