@@ -22,8 +22,8 @@ if ($_POST['goto'] == "0") {
     <title>Registrazione operatore</title>
 </head>
 <body>
-    <h2>Registrati</h2>
-    <form action="lista_tickets.php" method="post">
+<h2>Registrati</h2>
+<form action="lista_tickets.php" method="post">
 
     <label for="name">Nome</label>
     <input type="text" id="name" name="name"><br><br>

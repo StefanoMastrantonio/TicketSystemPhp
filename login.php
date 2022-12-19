@@ -51,7 +51,7 @@ if ($_POST['goto'] == "0") {
             }
         }
     }  else {
-    header("location: registrer_user.php");
+        header("location: registrer_user.php");
     }
 }
 ?>

@@ -6,7 +6,7 @@ $_SESSION = array();
 header("Location: ../form_login.php");
 if ($_SERVER['REQUEST_METHOD']=="POST") {
     session_destroy();
-    header("Location: form_registrazione.php");
+    header("Location: form_accesso.php");
 }
 
 require_once('config.php');
@@ -27,5 +27,3 @@ echo "<br><br>";
 
 <body>
 </body>
-
-</html>
