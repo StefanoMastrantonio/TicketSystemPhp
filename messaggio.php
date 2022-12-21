@@ -9,12 +9,16 @@ if (isset($_POST['text'])) {
     $operator_id = $_SESSION['id'];
     $user_id = $_SESSION['id'];
 
-    $sql = "INSERT INTO `messages` (`text`, `ticket_id`, `operator_id`, `user_id` ) VALUES ('$text', '$ticket_id', '$operator_id', '$user_id')";
-
-    /** @var PDO $dbh */
-    $result= $dbh->query($sql);
-
+    $sql = "INSERT INTO messages (text, ticket_id, operator_id, user_id ) VALUES ('$text', '$ticket_id', '$operator_id', '$user_id')";
 }
+//elseif (isset($_POST['text'])){
+//    $ticket_id = $_GET['ticket_id'];
+//    $text = $_POST['text'];
+//    $user_id = $_SESSION['id'];
+//
+//    $sql = "INSERT INTO messages (text, ticket_id, user_id) VALUES ('$text', '$ticket_id', '$user_id')";
+//}
+
 /** @var PDO $dbh */
 $sql = "SELECT messages.id, messages.date, messages.text, messages.ticket_id, messages.operator_id, messages.user_id FROM messages  WHERE ticket_id=".$_GET['ticket_id'];
 

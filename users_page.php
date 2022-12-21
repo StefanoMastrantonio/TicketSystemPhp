@@ -33,13 +33,13 @@ catch (PDOException $e)
 <h1>Compila i dati per il ticket</h1>
 <div>
     <h2>Inserire dati ticket</h2>
-    <form method="post" action="user_message.php">
+    <form method="post" action="ticket_form_page.php">
         <h3>Titolo</h3>
         <input type="text" name="title">
         <h3>Messaggio</h3>
         <input type="textarea" name="text">
         <h3>Categoria</h3>
-        <select name="name">
+        <select name="category_id">
             <option value="0"></option>
             <option value="1">Assistenza Commerciale</option>
             <option value="2">Assistenza Tecnica</option>
@@ -52,7 +52,6 @@ catch (PDOException $e)
             <option value="3">Alta</option>
         </select>
         <button type="submit">Submit to another page</button>
-        <input type="hidden" name="submit" value="Sent">
     </form>
     <form action="logout.php" method="post"><button type="submit">Log out</button></form>
 

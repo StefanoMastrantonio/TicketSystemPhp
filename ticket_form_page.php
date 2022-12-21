@@ -1,11 +1,12 @@
 <?php
 session_start();
 require_once('config.php');
-if (isset($_POST['title']) && isset($_POST['name']) && isset($_POST['priority']) && isset($_POST['text'])) {
+if (isset($_POST['title']) && isset($_POST['category_id']) && isset($_POST['priority']) && isset($_POST['text'])) {
     try {
         /** @var PDO $dbh */
-        $stmt = $dbh->prepare("INSERT INTO tickets (title, category_id, priority) VALUES (:title, :priority)");
+        $stmt = $dbh->prepare("INSERT INTO tickets (title, category_id, priority) VALUES (:title, :category_id, :priority)");
         $stmt->bindParam(':title', $_POST['title']);
+        $stmt->bindParam(':category_id', $_POST['category_id']);
         $stmt->bindParam(':priority', $_POST['priority']);
         $stmt->execute();
         $stmt = $dbh->prepare("SELECT * FROM `viewtickets`");
@@ -33,7 +34,7 @@ if (isset($_POST['title']) && isset($_POST['name']) && isset($_POST['priority'])
 } else {
     echo "il ticket non è stato compilato correttamente";
 };
-
+// ?ticket_id=$id
 
 /*
  *

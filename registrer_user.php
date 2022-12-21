@@ -5,7 +5,7 @@ if ($_POST['goto'] == "1") {
 
     try {
         /** @var PDO $dbh */
-        $stmt = $dbh->prepare("INSERT INTO users (email, password) VALUES (:email, :password)");
+        $stmt = $dbh->prepare("SELECT * FROM users WHERE email = :email AND password = :password");
         $stmt->bindParam(':email', $_POST['email']);
         $stmt->bindParam(':password', $_POST['password']);
         $stmt->execute();
@@ -13,6 +13,7 @@ if ($_POST['goto'] == "1") {
     } catch (PDOException $e) {
         print $e->getMessage();
     };
+    header ("location: form_accesso.php");
 }?>
 <html>
 <head>

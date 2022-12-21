@@ -1,7 +1,6 @@
 <?php
 session_start();
-$sessionid= $_SESSION['id'];
-if($sessionid =="") {
+if($_SESSION =="") {
     header('location: registrer.php');
 }
 require_once('config.php');

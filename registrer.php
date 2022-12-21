@@ -4,14 +4,17 @@ require_once('config.php');
 if ($_POST['goto'] == "0") {
     try {
         /** @var PDO $dbh */
-        $stmt = $dbh->prepare("INSERT INTO tickets (name, email, password) VALUES (:name, :email, :password)");
+        $stmt = $dbh->prepare("SELECT * FROM operators WHERE name = :name AND  email = :email AND password = :password");
         $stmt->bindParam(':name', $_POST['name']);
         $stmt->bindParam(':email', $_POST['email']);
         $stmt->bindParam(':password', $_POST['password']);
         $stmt->execute();
+
+
     } catch (PDOException $e) {
         print $e->getMessage();
     };
+    header ("location: form_accesso.php");
 }?>
 <html>
 <head>
@@ -23,7 +26,7 @@ if ($_POST['goto'] == "0") {
 </head>
 <body>
 <h2>Registrati</h2>
-<form action="lista_tickets.php" method="post">
+<form action="form_accesso.php" method="post">
 
     <label for="name">Nome</label>
     <input type="text" id="name" name="name"><br><br>
@@ -35,7 +38,6 @@ if ($_POST['goto'] == "0") {
     <input type="password" id="password" name="password"><br><br>
 
     <button type="submit">Submit to another page</button>
-    <input type="hidden" name="goto" value="0">
 </form>
 
 
