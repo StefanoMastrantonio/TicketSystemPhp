@@ -14,7 +14,7 @@ try {
     $stmt->bindParam(':email', $_POST['email']);
     $stmt->bindParam(':password', $_POST['password']);
     $stmt->execute();
-    echo "Inserimento ok";
+//    echo "Inserimento ok";
 }
 catch (PDOException $e)
 {

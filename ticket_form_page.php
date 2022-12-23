@@ -2,35 +2,48 @@
 session_start();
 require_once('config.php');
 if (isset($_POST['title']) && isset($_POST['category_id']) && isset($_POST['priority']) && isset($_POST['text'])) {
+
+    $utente = $_SESSION['id'];
+
     try {
         /** @var PDO $dbh */
-        $stmt = $dbh->prepare("INSERT INTO tickets (title, category_id, priority) VALUES (:title, :category_id, :priority)");
+        $stmt = $dbh->prepare("INSERT INTO tickets (title, category_id, priority, user_id) VALUES (:title, :category_id, :priority, :user_id)");
         $stmt->bindParam(':title', $_POST['title']);
         $stmt->bindParam(':category_id', $_POST['category_id']);
         $stmt->bindParam(':priority', $_POST['priority']);
+        $stmt->bindParam(':user_id', $utente);
         $stmt->execute();
-        $stmt = $dbh->prepare("SELECT * FROM `viewtickets`");
-        //    $stmt = $dbh->prepare("INSERT INTO messages (text) VALUES (:text)");
-        //   $stmt->bindParam(':text', $_POST['text']);
-        //   $stmt->execute();
-        //  $stmt = $dbh->prepare("INSERT INTO categories (name) VALUES (:name)");
-        //    $stmt->bindParam(':name', $_POST['name']);
-        //    $stmt = $dbh->prepare( "SELECT id FROM categories");
-        //   $stmt = $dbh->prepare("INSERT INTO tickets (category_id) SELECT categories.id FROM categories");
-        //   $stmt->execute();
-        //   $stmt = $dbh->prepare("SELECT operators.id, users.id FROM operators, users");
-        //    $stmt = $dbh->prepare("INSERT INTO tickets (operator_id, user_id) SELECT operators.id, users.id FROM operators, users");
-        //    $stmt->execute();
-        //  $stmt = $dbh->prepare("INSERT INTO categories (name) VALUES (:name)");
-        //   $stmt->bindParam(':name', $_POST['name']);
-        //  $stmt->execute();
 
+        $stmt = $dbh->prepare("INSERT INTO messages (text) VALUES (:text)");
+        $stmt->bindParam(':text', $_POST['text']);
+        $stmt->execute();
         $id = $dbh->lastInsertId();
+
+        header("Location: messaggio.php?ticket_id=$id");
+
+        //        $stmt = $dbh->prepare("SELECT * FROM `viewtickets`");
+//            $stmt = $dbh->prepare("INSERT INTO messages (text) VALUES (:text)");
+//           $stmt->bindParam(':text', $_POST['text']);
+//           $stmt->execute();
+//          $stmt = $dbh->prepare("INSERT INTO categories (name) VALUES (:name)");
+//            $stmt->bindParam(':name', $_POST['name']);
+//           $stmt = $dbh->prepare( "SELECT id FROM categories");
+//           $stmt = $dbh->prepare("INSERT INTO tickets (category_id) SELECT categories.id FROM categories");
+//          $stmt->execute();
+//           $stmt = $dbh->prepare("SELECT operators.id, users.id FROM operators, users");
+//            $stmt = $dbh->prepare("INSERT INTO tickets (operator_id, user_id) SELECT operators.id, users.id FROM operators, users");
+//            $stmt->execute();
+//          $stmt = $dbh->prepare("INSERT INTO categories (name) VALUES (:name)");
+//           $stmt->bindParam(':name', $_POST['name']);
+//          $stmt->execute();
+//
+
     } catch (PDOException $e) {
         print $e->getMessage();
         die();
     }
-    header("Location: messaggio.php?ticket_id=$id");
+
+
 } else {
     echo "il ticket non è stato compilato correttamente";
 };
