@@ -18,45 +18,37 @@ require_once('config.php');
 </head>
 
 <body>
-
-<!--Form di Accesso per L'operatore che indirizza a Lista Tickets-->
+<h1>Benvenuto</h1>
+<form id="scelta" method="POST" action="<?php $_SERVER['PHP_SELF'] ?>">
+    <select name="opzioni" onchange="redirect()">
+        <option value="">Scegli come loggarti</option>
+        <option value="operatore">Operatore</option>
+        <option value="utente">Utente</option>
+        <option value="admin">Admin</option>
+    </select>
+</form>
 
 <?php
-if (isset($_SESSION['msg'])) {
-    echo $_SESSION['msg'];
+
+if (isset($_POST['opzioni'])) {
+    $opzioni = $_POST['opzioni'];
+        switch ($opzioni) {
+        case 'operatore':
+            header ("location: accesso_operatore.php");
+            break;
+        case 'utente':
+            header ("location: accesso_utente.php");
+            break;
+        case 'admin':
+            header ("location: admin.php");
+            break;
+   }
 }
 ?>
-
-<h1>Benvenuto</h1>
-<div>
-    <h2>Accesso Operatore</h2>
-    <form action="login.php" method="post">
-
-        <label for="name">Numero Operatore</label>
-        <input type="text" id="name" name="name"><br><br>
-
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email"><br><br>
-
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password"><br><br>
-
-        <button type="submit">Accedi</button>
-        <input type="hidden" name="goto" value="0">
-    </form>
-</div>
-
-<div>
-    <h2>Accesso Utente</h2>
-    <form action="login.php" method="post">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email"><br><br>
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password"><br><br>
-        <button type="submit">Accedi</button>
-        <input type="hidden" name="goto" value="1">
-    </form>
-</div>
 </body>
-
+<script type="text/javascript">
+    function redirect() {
+        document.getElementById('scelta').submit();
+    }
+</script>
 </html>
