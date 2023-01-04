@@ -6,7 +6,6 @@ if (isset($_SESSION['msg'])) {
 
 <h2>Accesso Operatore</h2>
 <form action="login.php" method="post">
-
     <label for="name">Numero Operatore</label>
     <input type="text" id="name" name="name"><br><br>
 

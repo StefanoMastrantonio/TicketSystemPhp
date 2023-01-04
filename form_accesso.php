@@ -1,9 +1,4 @@
 <?php
-session_start();
-
-if (isset($_SESSION['id'])) {
-    header("Location:lista_tickets.php");
-}
 require_once('config.php');
 ?>
 <!DOCTYPE HTML>

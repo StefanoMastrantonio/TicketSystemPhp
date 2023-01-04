@@ -33,7 +33,7 @@ catch (PDOException $e)
 <h1>Compila i dati per il ticket</h1>
 <div>
     <h2>Inserire dati ticket</h2>
-    <form method="post" action="ticket_form_page.php">
+    <form method="post" action="create_ticket.php">
         <h3>Titolo</h3>
         <input type="text" name="title">
         <h3>Messaggio</h3>
