@@ -1,15 +1,18 @@
 <?php
+session_start();
 require_once('config.php');
-if (isset($_SESSION['msg'])) {
-    echo $_SESSION['msg'];
+if (!isset($_SESSION['id'])) {
+    print_r($_SESSION['id']);
+    header ("location: admin.php");
+} else {
+
+    /** @var PDO $dbh */
+    $sql = "SELECT * FROM operators";
+    $result = $dbh->query($sql);
+
+    $query = "SELECT * FROM users";
+    $risultato = $dbh->query($query);
 }
-
-/** @var PDO $dbh */
-$sql= "SELECT * FROM operators";
-$result = $dbh->query($sql);
-
-$query= "SELECT * FROM users";
-$risultato = $dbh->query($query);
 ?>
 <h1>ciao</h1>
 
@@ -82,5 +85,5 @@ $risultato = $dbh->query($query);
 
     </tbody>
 </table>
-
+<form action="logout.php" method="post"><button type="submit" >Log out</button></form>
 </body>

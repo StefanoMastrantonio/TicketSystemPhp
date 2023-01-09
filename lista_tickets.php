@@ -1,10 +1,13 @@
 <?php
 session_start();
-if($_SESSION =="") {
-    header('location: registrer.php');
-}
 require_once('config.php');
-echo "<br><br>";
+if(!isset($_SESSION['id'])) {
+    header('location: accesso_operatore.php');
+} else {
+    /** @var PDO $dbh */
+    $sql = "SELECT * FROM tickets";
+    $result= $dbh->query($sql);
+}
 
 //try {
     //
@@ -19,9 +22,7 @@ echo "<br><br>";
 //{
     //print $e->getMessage();
 //};
-/** @var PDO $dbh */
-$sql = "SELECT * FROM tickets";
-$result= $dbh->query($sql);
+
 
 ?>
 

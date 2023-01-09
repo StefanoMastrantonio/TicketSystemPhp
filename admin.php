@@ -1,9 +1,9 @@
 <?php
-require_once('config.php');
 session_start();
-if (isset($_SESSION['msg'])) {
-    echo $_SESSION['msg'];
-}
+require_once('config.php');
+//require_once ('vendor/autoload.php');
+
+//$_SESSION['id'];
 
 /** @var PDO $dbh */
 $sql= "SELECT * FROM operators";

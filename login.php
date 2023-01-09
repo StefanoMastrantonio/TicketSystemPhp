@@ -55,8 +55,8 @@ if ($_POST['goto'] == "0") {
                 }
             }
         } else {
+            $_SESSION['msg'] = "non puoi accedere a questa pagina";
             header("location: accesso_utente.php");
-            echo "non puoi accedere a questa pagina";
         }
     } catch (Exception $e) {
         $_SESSION['msg'] = $e->getMessage();

@@ -1,20 +1,9 @@
 <?php
 session_start();
-
 require_once('config.php');
-try {
-    /** @var PDO $dbh */
-    $stmt = $dbh->prepare("INSERT IGNORE INTO users (email, password) VALUES (:email, :password)");
-    $stmt->bindParam(':email', $_POST['email']);
-    $stmt->bindParam(':password', $_POST['password']);
-    $stmt->execute();
-//    echo "Inserimento ok";
+if (!isset($_SESSION['id'])) {
+    header ("location: accesso_utente.php");
 }
-catch (PDOException $e)
-{
-    print $e->getMessage();
-};
-
 ?>
 
 <!doctype html>
