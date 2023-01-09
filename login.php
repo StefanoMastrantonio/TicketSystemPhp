@@ -24,6 +24,7 @@ if ($_POST['goto'] == "0") {
             while ($row = $query->fetch()) {
                 if ($row['password'] === $password && $row['name'] === $name && $row['email'] === $email) {
                     $_SESSION['id'] = $row['id'];
+                    $_SESSION['role']= 'operatore';
                     header("location: lista_tickets.php");
                 }
             }
@@ -49,6 +50,7 @@ if ($_POST['goto'] == "0") {
             while ($row = $query->fetch()) {
                 if ($row['password'] === $password && $row['email'] === $email) {
                     $_SESSION['id'] = $row['id'];
+                    $_SESSION['role'] = 'utente';
                     header("location: users_page.php");
                 }
             }
@@ -75,6 +77,7 @@ if ($_POST['goto'] == "0") {
             while ($row = $query->fetch()) {
                 if ($row['password'] === $password && $row['name'] === $name && $row['email'] === $email) {
                     $_SESSION['id'] = $row['id'];
+                    $_SESSION['role'] = 'admin';
                     header("location: pagina_admin.php");
                 }
             }

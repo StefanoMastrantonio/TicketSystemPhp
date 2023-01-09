@@ -2,6 +2,8 @@
 if (isset($_SESSION['msg'])) {
     echo $_SESSION['msg'];
 }
+
+
 ?>
 
 <h2>Accesso Operatore</h2>

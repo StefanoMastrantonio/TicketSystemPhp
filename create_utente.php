@@ -14,7 +14,7 @@ if ((isset($_POST['email'])) && (isset($_POST['password']))) {
     $stmt->bindParam(':password', $_POST['password']);
     $stmt->execute();
 } else {
-    header('location: form_creazione_operatore.php');
+    header('location: form_creazione_utente.php');
 }
 
 $sql= "SELECT * FROM users";

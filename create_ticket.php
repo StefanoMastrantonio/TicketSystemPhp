@@ -13,11 +13,13 @@ if (isset($_POST['title']) && isset($_POST['category_id']) && isset($_POST['prio
         $stmt->bindParam(':priority', $_POST['priority']);
         $stmt->bindParam(':user_id', $utente);
         $stmt->execute();
-
-        $stmt = $dbh->prepare("INSERT INTO messages (text) VALUES (:text)");
-        $stmt->bindParam(':text', $_POST['text']);
-        $stmt->execute();
         $id = $dbh->lastInsertId();
+        $stmt = $dbh->prepare("INSERT INTO messages (text, ticket_id, user_id) VALUES (:text, :ticket_id,:user_id)");
+        $stmt->bindParam(':text', $_POST['text']);
+        $stmt->bindParam(':user_id', $utente);
+        $stmt->bindParam(':ticket_id', $id);
+        $stmt->execute();
+
 
         header("Location: messaggio.php?ticket_id=$id");
 

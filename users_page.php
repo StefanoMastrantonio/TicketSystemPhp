@@ -4,7 +4,7 @@ session_start();
 require_once('config.php');
 try {
     /** @var PDO $dbh */
-    $stmt = $dbh->prepare("INSERT INTO users (email, password) VALUES (:email, :password)");
+    $stmt = $dbh->prepare("INSERT IGNORE INTO users (email, password) VALUES (:email, :password)");
     $stmt->bindParam(':email', $_POST['email']);
     $stmt->bindParam(':password', $_POST['password']);
     $stmt->execute();

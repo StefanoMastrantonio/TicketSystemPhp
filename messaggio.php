@@ -1,15 +1,52 @@
 <?php
+session_start();
 require_once('config.php');
 echo "<br><br>";
-session_start();
+
 
 if (isset($_POST['text'])) {
     $ticket_id = $_GET['ticket_id'];
     $text = $_POST['text'];
-    $operator_id = $_SESSION['id'];
-    $user_id = $_SESSION['id'];
+    if ($_SESSION['role'] == 'utente') {
+        $operator_id = null;
+        $user_id = $_SESSION['id'];
+    } elseif ($_SESSION['role'] == 'operatore') {
+        $operator_id = $_SESSION['id'];
+        $user_id = null;
+    }
 
-    $sql = "INSERT INTO messages (text, ticket_id, operator_id, user_id ) VALUES ('$text', '$ticket_id', '$operator_id', '$user_id')";
+    try {
+        /** @var PDO $dbh */
+        $sql = $dbh->prepare("INSERT INTO messages (text, ticket_id, operator_id, user_id ) VALUES (:text, :ticket_id,:operator_id, :user_id)");
+        $sql->bindParam(':text', $_POST['text']);
+        $sql->bindParam(':ticket_id', $_GET['ticket_id']);
+        $sql->bindParam(':operator_id', $operator_id);
+        $sql->bindParam(':user_id', $user_id);
+        $sql->execute();
+    } catch (PDOException $e) {
+        print $e->getMessage();
+        die();
+    }
+
+    try {
+        if ($_SESSION['role'] == 'operatore') {
+            $sql = $dbh->prepare("SELECT * FROM tickets WHERE id=:id");
+            $sql->bindParam(':id', $_GET['ticket_id']);
+            $sql->execute();
+
+            $result = $sql->fetch();
+            if (empty($result['operator_id'])) {
+                $sql = $dbh->prepare("UPDATE tickets SET operator_id=:operator_id WHERE id=:id");
+                $sql->bindParam(':operator_id', $_SESSION['id']);
+                $sql->bindParam(':id', $_GET['ticket_id']);
+                $sql->execute();
+            }
+        }
+    } catch (PDOException $e) {
+        print $e->getMessage();
+        die();
+    }
+
 }
 //elseif (isset($_POST['text'])){
 //    $ticket_id = $_GET['ticket_id'];
@@ -20,9 +57,9 @@ if (isset($_POST['text'])) {
 //}
 
 /** @var PDO $dbh */
-$sql = "SELECT messages.id, messages.date, messages.text, messages.ticket_id, messages.operator_id, messages.user_id FROM messages  WHERE ticket_id=".$_GET['ticket_id'];
+$sql = "SELECT messages.id, messages.date, messages.text, messages.ticket_id, messages.operator_id, messages.user_id FROM messages  WHERE ticket_id=" . $_GET['ticket_id'];
 
-$result= $dbh->query($sql);
+$result = $dbh->query($sql);
 ?>
 <!doctype html>
 <html lang="en">

@@ -75,7 +75,7 @@ $risultato = $dbh->query($query);
         <td>{$row["id"]}</td>
         <td>{$row["email"]}</td>
         <td>{$row["password"]}</td>
-        <th><a>Cancella Utente</a></th>
+        <th><a href='delete_utente.php'>Cancella Utente</a></th>
     </tr>";
     }
     ?>

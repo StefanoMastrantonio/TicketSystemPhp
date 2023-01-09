@@ -4,23 +4,22 @@ if($_SESSION =="") {
     header('location: registrer.php');
 }
 require_once('config.php');
-print_r ($_POST);
 echo "<br><br>";
 
-try {
-    /** @var PDO $dbh */
-    $stmt = $dbh->prepare("INSERT INTO operators (name, email, password) VALUES (:name, :email, :password)");
-    $stmt->bindParam(':name', $_POST['name']);
-    $stmt->bindParam(':email', $_POST['email']);
-    $stmt->bindParam(':password', $_POST['password']);
-    $stmt->execute();
+//try {
+    //
+    //$stmt = $dbh->prepare("INSERT INTO operators (name, email, password) VALUES (:name, :email, :password)");
+    //$stmt->bindParam(':name', $_POST['name']);
+    //$stmt->bindParam(':email', $_POST['email']);
+    //$stmt->bindParam(':password', $_POST['password']);
+    //$stmt->execute();
 //    echo "Inserimento ok";
-}
-catch (PDOException $e)
-{
-    print $e->getMessage();
-};
-
+//}
+//catch (PDOException $e)
+//{
+    //print $e->getMessage();
+//};
+/** @var PDO $dbh */
 $sql = "SELECT * FROM tickets";
 $result= $dbh->query($sql);
 
