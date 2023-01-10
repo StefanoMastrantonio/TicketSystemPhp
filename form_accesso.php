@@ -9,19 +9,21 @@ require_once('config.php');
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="form_accesso.css">
     <title>Form Registrazione</title>
 </head>
 
 <body>
-<h1>Benvenuto</h1>
-<form id="scelta" method="POST" action="<?php $_SERVER['PHP_SELF'] ?>">
-    <select name="opzioni" onchange="redirect()">
-        <option value="">Scegli come loggarti</option>
-        <option value="operatore">Operatore</option>
-        <option value="utente">Utente</option>
-        <option value="admin">Admin</option>
-    </select>
-</form>
+<div class="container">
+    <h1>Benvenuto</h1>
+    <form id="scelta" method="POST" action="<?php $_SERVER['PHP_SELF'] ?>">
+        <select name="opzioni" onchange="redirect()">
+            <option value="">Scegli come loggarti</option>
+            <option value="operatore">Operatore</option>
+            <option value="utente">Utente</option>
+            <option value="admin">Admin</option>
+        </select>
+    </form>
 
 <?php
 
@@ -40,6 +42,7 @@ if (isset($_POST['opzioni'])) {
    }
 }
 ?>
+</div>
 </body>
 <script type="text/javascript">
     function redirect() {

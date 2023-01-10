@@ -66,7 +66,7 @@ if (!isset($_SESSION['id'])) {
     </thead>
     <tbody>
     <?php
-    $sql = "SELECT * FROM tickets";
+    $sql = "SELECT * FROM tickets WHERE user_id= ".$_SESSION['id'];
     $result= $dbh->query($sql);
     foreach ($result as $row) {
         echo "
