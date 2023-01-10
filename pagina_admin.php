@@ -12,6 +12,9 @@ if (!isset($_SESSION['id'])) {
 
     $query = "SELECT * FROM users";
     $risultato = $dbh->query($query);
+
+    $quer = "SELECT * FROM categories";
+    $results = $dbh->query($quer);
 }
 ?>
 <h1>ciao</h1>
@@ -21,6 +24,7 @@ if (!isset($_SESSION['id'])) {
 
 <button><a href="form_creazione_operatore.php">Crea Nuovo Operatore</a></button>
 <button><a href="form_creazione_utente.php">Crea Nuovo Utente</a></button>
+<button><a href="form_creazione_categoria.php">Crea Nuovo Categoria</a></button>
 
 <!doctype html>
 <html lang="en">
@@ -52,7 +56,7 @@ if (!isset($_SESSION['id'])) {
         <td>{$row["name"]}</td>
         <td>{$row["email"]}</td>
         <td>{$row["password"]}</td>
-        <th><a>Cancella operatore</a></th>
+        <th><a href='delete_operatore.php?operator_id={$row['id']}'>Cancella operatore</a></th>
     </tr>";
     }
     ?>
@@ -78,7 +82,29 @@ if (!isset($_SESSION['id'])) {
         <td>{$row["id"]}</td>
         <td>{$row["email"]}</td>
         <td>{$row["password"]}</td>
-        <th><a href='delete_utente.php'>Cancella Utente</a></th>
+        <th><a href='delete_utente.php?user_id={$row['id']}'>Cancella Utente</a></th>
+    </tr>";
+    }
+    ?>
+
+    </tbody>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="10">
+    <thead>
+    <tr>
+        <th>Id categoria</th>
+        <th>Nome</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php
+    foreach ($results as $row) {
+        echo "
+        <tr>
+        <td>{$row["id"]}</td>
+        <td>{$row["name"]}</td>
+        <th><a href='delete_category.php?category_id={$row['id']}'>Cancella Categoria</a></th>
     </tr>";
     }
     ?>

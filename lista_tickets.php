@@ -6,7 +6,12 @@ if(!isset($_SESSION['id'])) {
 } else {
     /** @var PDO $dbh */
     $sql = "SELECT * FROM tickets";
-    $result= $dbh->query($sql);
+    try {
+        $result = $dbh->query($sql);
+    } catch (PDOException $e) {
+        print $e->getMessage();
+        die();
+    }
 }
 
 //try {
