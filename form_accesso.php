@@ -14,7 +14,8 @@ require_once('config.php');
 </head>
 
 <body style="background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(65,65,129,1) 35%, rgba(0,212,255,1) 100%); height: 100vh;">
-<div class="container" style="text-align: center; d-flex line-height: center;">
+
+<div class="container">
     <h1 style="color:white">Benvenuto</h1>
     <form id="scelta" method="POST" action="<?php $_SERVER['PHP_SELF'] ?>">
         <select name="opzioni" onchange="redirect()">

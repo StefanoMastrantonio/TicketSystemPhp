@@ -12,7 +12,7 @@ function body(array $data) : string {
     <title>Ticket</title>
 
 </head>
-<body style="font-family: Arial;">
+<body style="font-family: Arial; width: 70%; margin: auto;">
 <div class="container">
     <header style="background: #101445; ">
         <img src="https://www.tecnasoft.it/media/img/logo_negativo_verde.png" alt="" style="padding: 2rem; width: 25%;">

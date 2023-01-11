@@ -10,13 +10,32 @@ i {
     color: white;
 }
 
+i:hover {
+    color: #c1d405;
+}
+
+a:hover {
+    background-color: #101445;
+    opacity: 0.9;
+}
+
 .container {
+    width: 70%;
+    margin: auto;
     display: flex;
+}
+
+.container-main {
+    display: flex;
+    width: 70%;
+    margin: auto;
 }
 
 .container-title {
     margin: 1rem 0;
     display: flex;
+    justify-content: space-between;
+;
 }
 
 .logout {
@@ -25,7 +44,6 @@ i {
 .menu {
     display: flex;
     flex-direction: column;
-    border: 1px solid white;
     margin: 1rem;
 }
 

@@ -33,6 +33,8 @@ if (!isset($_SESSION['id'])) {
 
 </head>
 <body style="background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(65,65,129,1) 35%, rgba(0,212,255,1) 100%); height: 100vh; color:white;">
+
+<div class="container">
 <div class="container-title">
     <div class="title">
         <h1>Benvenuto Admin!</h1>
@@ -42,14 +44,14 @@ if (!isset($_SESSION['id'])) {
     <div class="logout">
         <a href="logout.php"><i class="fa-solid fa-right-from-bracket"></i></a>
     </div>
-
-</div>
-<div class="container">
     <div class="menu">
         <a href="form_creazione_operatore.php" ><i class="fa-sharp fa-solid fa-user-plus" id="operator" ></i></a>
         <a href="form_creazione_utente.php"><i class="fa-sharp fa-solid fa-person-circle-plus" id="user"></i></a>
         <a href="form_creazione_categoria.php"><i class="fa-solid fa-square-plus" id="category"></i></a>
     </div>
+</div>
+<div class="container-main">
+
 
 <div class="container-table">
     <body background="img/logo-tecnasoft.png">
@@ -131,5 +133,5 @@ if (!isset($_SESSION['id'])) {
     </table>
 </div>
 </div>
-
+</div>
 </body>
