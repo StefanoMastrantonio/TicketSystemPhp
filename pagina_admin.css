@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+    color: white;
+}
+
+i {
+    color: white;
+}
+
+.container {
+    display: flex;
+}
+
+.container-title {
+    margin: 1rem 0;
+    display: flex;
+}
+
+.logout {
+    justify-content: end;
+}
+.menu {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid white;
+    margin: 1rem;
+}
+
+.menu a {
+    margin: 1rem;
+}
+
+
+.container-table {
+    display: flex;
+    flex-direction: column;
+}
+
+table {
+    margin: 1rem;
+}
+
+.active {
+    color:red;
+}

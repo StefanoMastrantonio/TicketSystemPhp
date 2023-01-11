@@ -7,12 +7,14 @@ use PHPMailer\PHPMailer\Exception;
 require 'vendor/autoload.php';
 
 require_once('config.php');
+//includo file di struttura della mail
+require_once('body.php');
 if (isset($_SESSION['msg'])) {
     echo $_SESSION['msg'];
 }
 if ((isset($_POST['email'])) && (isset($_POST['password']))) {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+//    $email = $_POST['email'];
+//    $password = $_POST['password'];
 //    print_r($_POST);
 
     /** @var PDO $dbh */
@@ -46,14 +48,20 @@ if ((isset($_POST['email'])) && (isset($_POST['password']))) {
 //            $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
 //            $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
 
+        //array associativo che ho definito qui e che richiamo dalla funzione presente in body.php. Serve a richiamare i parametri che voglio far vedere nella mail della creazione dell'operatore
+        $data =['email'=> $_POST['email'], 'password' => $_POST['password']];
+
+        //ho creato una variabile con all'interno la funzione che contiene l'array data
+        $body= body($data);
+
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
-        $mail->Subject = 'Here is the subject';
-        $mail->Body    = 'Nuovo utente creato!<b>in bold!</b>';
+        $mail->Subject = 'NoReply - Creazione Utente';
+        $mail->Body    = $body;
         $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
         $mail->send();
-        echo 'Message has been sent';
+        echo 'Mail Inviata!';
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }

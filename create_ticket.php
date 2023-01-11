@@ -7,6 +7,8 @@ use PHPMailer\PHPMailer\Exception;
 
 require 'vendor/autoload.php';
 require_once('config.php');
+//includo file di struttura della mail
+require_once('body.php');
 if (isset($_POST['title']) && isset($_POST['category_id']) && isset($_POST['priority']) && isset($_POST['text'])) {
 
     $utente = $_SESSION['id'];
@@ -52,14 +54,20 @@ if (isset($_POST['title']) && isset($_POST['category_id']) && isset($_POST['prio
 //            $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
 //            $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
 
+            //array associativo che ho definito qui e che richiamo dalla funzione presente in body.php. Serve a richiamare i parametri che voglio far vedere nella mail della creazione del ticket
+            $data =['titolo' => $_POST['title'], 'categoria'=> $_POST['category_id'], 'priorità' => $_POST['priority'], 'testo' => $_POST['text'] ];
+
+            //ho creato una variabile con all'interno la funzione che contiene l'array data
+            $body= body($data);
             //Content
             $mail->isHTML(true);                                  //Set email format to HTML
-            $mail->Subject = 'Here is the subject';
-            $mail->Body    = 'Nuovo ticket inviato!<b>in bold!</b>';
+            $mail->Subject = 'NoReply - Invio Ticket';
+            //ho richiamato la variabile con all'interno la funzione
+            $mail->Body    = $body;
             $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
             $mail->send();
-            echo 'Message has been sent';
+            echo 'Ticket Inviato!';
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }

@@ -22,7 +22,7 @@ $result = $dbh->query($sql);
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Form Registrazione</title>
 </head>
-<body>
+<body style="background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(65,65,129,1) 35%, rgba(0,212,255,1) 100%); height: 100vh; color:white;">
 <form action="login.php" method="post">
     <label for="name">nome</label>
     <input type="text" id="name" name="name"><br><br>
