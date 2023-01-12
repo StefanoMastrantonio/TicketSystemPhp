@@ -1,8 +1,9 @@
-let item = document.getElementById('operator');
-item.addEventListener("click", function(e) {
-    e.preventDefault();
-    item.classList.add('active');
-    setTimeout(()=>{
-        location.href="form_creazione_operatore.php";
-    }, 1000);
-})
+// let item = document.querySelectorAll('operator');
+// item.addEventListener("click", function(e) {
+//     e.preventDefault();
+//     item.classList.add('active');
+//     setTimeout(()=>{
+//         location.href="pagina_admin.php";
+//     }, 1000);
+// })
+

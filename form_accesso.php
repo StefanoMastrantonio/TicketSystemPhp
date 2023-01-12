@@ -9,23 +9,26 @@ require_once('config.php');
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="form_accesso.css">
+    <link rel="stylesheet" href="css/home.css">
     <title>Form Registrazione</title>
 </head>
 
 <body style="background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(65,65,129,1) 35%, rgba(0,212,255,1) 100%); height: 100vh;">
 
 <div class="container">
-    <h1 style="color:white">Benvenuto</h1>
-    <form id="scelta" method="POST" action="<?php $_SERVER['PHP_SELF'] ?>">
-        <select name="opzioni" onchange="redirect()">
-            <option value="">Scegli come loggarti</option>
-            <option value="operatore">Operatore</option>
-            <option value="utente">Utente</option>
-            <option value="admin">Admin</option>
-        </select>
-    </form>
-
+    <h1>Benvenuto</h1>
+    <br>
+    <br>
+    <div class="form">
+        <form id="scelta" method="POST" action="<?php $_SERVER['PHP_SELF'] ?>">
+            <select name="opzioni" onchange="redirect()">
+                <option value="">Scegli come loggarti</option>
+                <option value="operatore">Operatore</option>
+                <option value="utente">Utente</option>
+                <option value="admin">Admin</option>
+            </select>
+        </form>
+    </div>
 <?php
 
 if (isset($_POST['opzioni'])) {

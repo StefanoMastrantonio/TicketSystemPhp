@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+    color: white;
+}
+
+body {
+
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(65,65,129,1) 35%, rgba(0,212,255,1) 100%);
+    min-height: 100vh;
+    color: white;
+}
+
+i {
+    color: white;
+    font-size: 30px;
+}
+
+i:hover {
+    color: #c1d405;
+}
+
+.container-main {
+    display: flex;
+    border: 1px solid white;
+    min-height: 70vh;
+}
+
+.container-title {
+    margin: 1rem auto 3rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logout {
+    justify-content: end;
+}
+.logout a i{
+    padding: 1rem;
+}
+.menu {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    width: 30%;
+}
+
+.menu a {
+    margin: 1rem;
+}
+
+
+.container-table {
+    display: flex;
+    flex-direction: column;
+    margin: 0 4rem;
+}
+
+table {
+    margin: 2rem 0;
+}
+tr {
+    border: 1px solid transparent;
+    border-spacing: 10px;
+
+}
+td {
+    border: 1px solid transparent;
+    border-spacing: 10px;
+
+}
+th {
+    border: 1px solid transparent;
+    border-spacing: 10px;
+
+}
+
+.operator, .user, .category {
+    margin: 2rem 0;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: transparent;
+}
+
+.ftone {
+    border: 1px solid white;
+    width: 33%;
+    height: 30vh;
+    padding: 1rem;
+}
+
+.fttwo {
+    border: 1px solid white;
+    width: 66%;
+    heigth: 30vh;
+    display: flex;
+}
+
+.mails, .contacts, .social {
+    width: 33%;
+    padding: 1rem;
+}
+
+.image img {
+    width: 100%;
+}
+
+nav {
+    style: none;
+}
+nav ul {
+    list-style: none;
+    display:flex;
+    justify-content: flex-end;
+}
+nav ul li a {
+    color:white;
+    justify-content: space-between;
+    margin-left: 1rem;
+}
+
+.container {
+    width: 50%;
+    margin: 0 auto;
+}
+
+

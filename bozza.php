@@ -9,7 +9,7 @@
     <title>Ticket</title>
 
 </head>
-<body>
+<body style="background-color: red";>
 <div class="container"  >
     <header style="background: #101445;">
         <img src="img/logo-tecnasoft.png" alt="">
@@ -26,5 +26,23 @@
         <i class="fa-brands fa-linkedin"></i>
     </footer>
 </div>
+
+<img src="img/social-removebg-preview.png" alt="">
+
+<Table>
+    <thead>
+        <Tr>
+            <th>nome colonna1</th>
+            <th>Nome colonna2</th>
+        </Tr>
+    </thead>
+    <ul>
+        <li> prima colonna </ li>
+
+        <li> seconda colonna </ li>
+    </ul>
+
+
+</ Table>
 
 </body>
