@@ -45,4 +45,28 @@
 
 </ Table>
 
+<style>
+    #talkbubble {
+        width: 120px;
+        height: 80px;
+        background: #0060A0;
+        position: relative;
+        -moz-border-radius:    10px;
+        -webkit-border-radius: 10px;
+        border-radius:         10px;
+    }
+    #talkbubble:before {
+        content:"";
+        position: absolute;
+        right: 100%;
+        top: 26px;
+        width: 0;
+        height: 0;
+        border-top: 13px solid transparent;
+        border-right: 26px solid #0060A0;
+        border-bottom: 13px solid transparent;
+    }
+</style>
+<div id="talkbubble"></div>
+
 </body>

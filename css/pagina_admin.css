@@ -58,6 +58,14 @@ i:hover {
     margin: 0 4rem;
 }
 
+.categorie, .operatori {
+    display:none;
+}
+
+.active {
+    display: block;
+}
+
 table {
     margin: 2rem 0;
 }

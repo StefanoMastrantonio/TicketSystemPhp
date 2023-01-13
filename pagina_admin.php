@@ -29,8 +29,8 @@ if (!isset($_SESSION['id'])) {
     <link rel="stylesheet" href="css/pagina_admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="js/pagina_admin.js" defer></script>
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
+
     <title>Pagina Admin</title>
 
 </head>
@@ -52,13 +52,13 @@ if (!isset($_SESSION['id'])) {
         <div class="container-fluid">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="read_operators.php">Vedi tutti gli operatori</a>
+                        <a class="nav-link active" aria-current="page" href="#" class="glioperatori">Vedi tutti gli operatori</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="read_users.php">Vedi tutti gli utenti</a>
+                        <a class="nav-link" href="#" class="utenti">Vedi tutti gli utenti</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="read_categories.php">Vedi tutte le categorie</a>
+                    <li>
+                        <a href="#" class="lecategorie">Vedi tutte le categorie</a>
                     </li>
                 </ul>
         </div>
@@ -77,11 +77,61 @@ if (!isset($_SESSION['id'])) {
         </div>
 
     <div class="container-table">
-    <!--    <img src="img/social-removebg-preview.png" alt="">-->
 
-        <br>
-        <br>
+        <div class="categorie">
+            <h3>Tutte le categorie</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th style ='display: none'>Id categoria</th>
+                    <th>Nome</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+                foreach ($results as $row) {
+                    echo "
+            <tr>
+            <td style ='display: none'>{$row["id"]}</td>
+            <td>{$row["name"]}</td>
+            <th><a href='delete_category.php?category_id={$row['id']}'><i class='fa-sharp fa-solid fa-trash'></i></a></th>
+        </tr>";
+                }
+                ?>
 
+                </tbody>
+            </table>
+        </div>
+
+        <div class="operatori">
+            <h3>Tutti gli operatori</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th style ='display: none'>Id Operatore</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Cancella</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+                foreach ($result as $row) {
+                    echo "
+            <tr>
+            <td style ='display: none'>{$row["id"]}</td>
+            <td>{$row["name"]}</td>
+            <td>{$row["email"]}</td>
+            <td>{$row["password"]}</td>
+            <th><a href='delete_operatore.php?operator_id={$row['id']}'><i class='fa-sharp fa-solid fa-trash'></i></a></th>
+        </tr>";
+                }
+                ?>
+
+                </tbody>
+            </table>
+        </div>
 
 
     </div>
@@ -119,4 +169,5 @@ if (!isset($_SESSION['id'])) {
 
     </footer>
 </div>
+<script src="js/admin.js"></script>
 </body>

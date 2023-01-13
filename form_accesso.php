@@ -10,10 +10,10 @@ require_once('config.php');
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/home.css">
-    <title>Form Registrazione</title>
+    <title>Form Accesso</title>
 </head>
 
-<body style="background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(65,65,129,1) 35%, rgba(0,212,255,1) 100%); height: 100vh;">
+<body>
 
 <div class="container">
     <h1>Benvenuto</h1>
@@ -22,7 +22,7 @@ require_once('config.php');
     <div class="form">
         <form id="scelta" method="POST" action="<?php $_SERVER['PHP_SELF'] ?>">
             <select name="opzioni" onchange="redirect()">
-                <option value="">Scegli come loggarti</option>
+                <option value="">Scegli come accedere</option>
                 <option value="operatore">Operatore</option>
                 <option value="utente">Utente</option>
                 <option value="admin">Admin</option>
@@ -35,13 +35,13 @@ if (isset($_POST['opzioni'])) {
     $opzioni = $_POST['opzioni'];
         switch ($opzioni) {
         case 'operatore':
-            header ("location: accesso_operatore.php");
+            header ("location: operatore/accesso_operatore.php");
             break;
         case 'utente':
-            header ("location: accesso_utente.php");
+            header ("location: utente/accesso_utente.php");
             break;
         case 'admin':
-            header ("location: admin.php");
+            header ("location: admin/admin.php");
             break;
    }
 }

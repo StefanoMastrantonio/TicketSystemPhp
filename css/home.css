@@ -56,3 +56,7 @@ select:hover {
     transition-duration: 0.5s;
     color:black;
 }
+
+option {
+    color: black;
+}

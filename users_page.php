@@ -13,15 +13,30 @@ if (!isset($_SESSION['id'])) {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/users_page.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">-->
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
+
     <title>Ticket</title>
 
 </head>
 <body>
 <!--Form di invio Ticket a Lista Tickets-->
+<div class="container">
+    <div class="container-title">
+        <div class="title">
+            <h2>Benvenuto Admin!</h2>
+        </div>
+        <div class="logout">
+            <a href="logout.php"><i class="fa-solid fa-right-from-bracket"></i></a>
+        </div>
 
-<h1>Compila i dati per il ticket</h1>
-<div>
-    <h2>Inserire dati ticket</h2>
+    </div>
+    <br><br>
+    <a href="#" class="ticket">Inserisci ticket</a>
+    <div  class="form">
+
     <form method="post" action="create_ticket.php">
         <h3>Titolo</h3>
         <input type="text" name="title">
@@ -42,7 +57,6 @@ if (!isset($_SESSION['id'])) {
         </select>
         <button type="submit">Submit to another page</button>
     </form>
-    <form action="logout.php" method="post"><button type="submit">Log out</button></form>
 
 </div>
 
@@ -88,5 +102,7 @@ if (!isset($_SESSION['id'])) {
     ?>
     </tbody>
 </table>
+</div>
+<script src="js/script.js"></script>
 </body>
 </html>

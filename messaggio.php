@@ -148,34 +148,49 @@ $result = $dbh->query($sql);
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/messaggio.css">
     <title>Messaggio</title>
 
 </head>
 <body>
-<?php
-foreach ($result as $row) {
-    echo "
-    <h2>Id</h2>
-    <h2>{$row["id"]}</h2>
-    <h4>data del messaggio</h4>
-    <p>{$row["date"]}</p>
-    <h4>Mesaggio</h4>
-    <p>{$row["text"]}</p>
-    <h4>identificativo del ticket</h4>
-    <p>{$row["ticket_id"]}</p>
-    <h4>identificativo operatore</h4>
-    <p>{$row["operator_id"]}</p>
-    <h4>identificativo dell'utente</h4>
-    <p>{$row["user_id"]}</p>
-    ";
-}
-?>
+<div class="container">
+    <h1>Chat Utente Operatore</h1>
+    <br><br>
+    <?php
+    foreach ($result as $row) {
+        echo "
+        <div class='chat'>
+            <div class='details'>
+                <h3 style='display: none;'>Numero Identificativo: {$row["id"]}</h3>
+                <h3 style='display:none;'>data del messaggio</h3>
+                <p style='display:none;'>{$row["date"]}</p>
+                <h3>identificativo del ticket: {$row["ticket_id"]}</h3>
+                <h3>identificativo operatore: {$row["operator_id"]}</h3>
+                <h3>identificativo dell'utente: {$row["user_id"]}</h3>
+            </div>
+            <h4 style='display:none;'>Mesaggio</h4>
+            <p>{$row["text"]}</p>
+        </div>
+        <br>
+        <br>
+        ";
+    }
+    ?>
+    <div style="display: flex; flex-direction: column; justify-content: center;">
+        <h2 style="text-align: center;">Rispondi </h2>
+        <br>
+        <br>
+        <div class="answer">
+            <textarea name="text" placeholder="rispondi qui..." ></textarea>
 
-<h1>Rispondi al ticket</h1>
+        </div>
+        <div class="button">
+            <form method="post">
 
-<form method="post">
-    <textarea name="text"></textarea>
-    <input type="submit" value="Invia">
-</form>
-
+                <br>
+                <input type="submit" value="Invia">
+            </form>
+        </div>
+    </div>
+</div>
 </body>

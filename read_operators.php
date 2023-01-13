@@ -22,6 +22,7 @@ if (!isset($_SESSION['id'])) {
             <th>Nome</th>
             <th>Email</th>
             <th>Password</th>
+            <th>Cancella</th>
         </tr>
         </thead>
         <tbody>
