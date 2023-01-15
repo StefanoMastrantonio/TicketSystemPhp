@@ -37,136 +37,157 @@ if (!isset($_SESSION['id'])) {
 <body>
 
 <div class="container">
+    <!--Benvenuto e logout-->
     <div class="container-title">
+        <!--titolo-->
         <div class="title">
             <h1>Benvenuto Admin!</h1>
-
             <p>che cosa vuoi fare?</p>
         </div>
+        <!--logout-->
         <div class="logout">
             <a href="logout.php"><i class="fa-solid fa-right-from-bracket"></i></a>
         </div>
-
     </div>
+
+    <!--barra di navigazione per vedere tabelle operatori, utenti e categorie-->
     <nav class="navbar navbar-expand-lg bg-transparent">
         <div class="container-fluid">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#" class="glioperatori">Vedi tutti gli operatori</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" class="utenti">Vedi tutti gli utenti</a>
-                    </li>
-                    <li>
-                        <a href="#" class="lecategorie">Vedi tutte le categorie</a>
-                    </li>
-                </ul>
+            <ul class="navbar-nav">
+                <li>
+                    <a href="#" class="glioperatori">Vedi tutti gli operatori</a>
+                </li>
+                <li>
+                    <a href="#" class="gliutenti">Vedi tutti gli utenti</a>
+                </li>
+                <li>
+                    <a href="#" class="lecategorie">Vedi tutte le categorie</a>
+                </li>
+            </ul>
         </div>
     </nav>
+
+    <!--sezione principale, con possibilità di creazione operatore, utente e categorie e mostra tabelle categorie-->
     <div class="container-main">
+
+        <!--crezione operatore, utente e categorie-->
         <div class="menu">
-            <div class="operator">
-                <a href="form_creazione_operatore.php" alt="crea operatore"><i class="fa-sharp fa-solid fa-user-plus" id="operator"><span style="display: none;">Crea Nuovo Operatore</span></i></a>
+            <div class="avatar">
+                <i class="fa-solid fa-user-gear"></i>
             </div>
-            <div class="user">
-                <a href="form_creazione_utente.php"><i class="fa-sharp fa-solid fa-person-circle-plus" id="user"><span style="display: none;">Crea Nuovo Utente</i></a>
-            </div>
-            <div class="category">
-                <a href="form_creazione_categoria.php"><i class="fa-solid fa-square-plus" id="category"><span style="display: none;">Crea Nuova Categoria</i></a>
+            <div class="actions">
+                <div class="operator">
+                    <a href="form_creazione_operatore.php" alt="crea operatore"><span>Crea Nuovo Operatore</span></a>
+                </div>
+                <div class="user">
+                    <a href="form_creazione_utente.php"><span">Crea Nuovo Utente</a>
+                </div>
+                <div class="category">
+                    <a href="form_creazione_categoria.php"><span >Crea Nuova Categoria</a>
+                </div>
             </div>
         </div>
 
-    <div class="container-table">
 
-        <div class="categorie">
-            <h3>Tutte le categorie</h3>
-            <table>
-                <thead>
-                <tr>
-                    <th style ='display: none'>Id categoria</th>
-                    <th>Nome</th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php
-                foreach ($results as $row) {
-                    echo "
-            <tr>
-            <td style ='display: none'>{$row["id"]}</td>
-            <td>{$row["name"]}</td>
-            <th><a href='delete_category.php?category_id={$row['id']}'><i class='fa-sharp fa-solid fa-trash'></i></a></th>
-        </tr>";
-                }
-                ?>
+        <!--container delle tabelle di operatori, utenti e categorie-->
+        <div class="container-table">
 
-                </tbody>
-            </table>
+            <!--tabella operatori con toggle-->
+            <div class="operatori">
+                <h3>Tutti gli operatori</h3>
+                    <div class="container-table one">
+                        <div class="row">
+                            <div style ='display: none'>Id Operatore</div>
+                            <div class="row-cel">Nome</div>
+                            <div class="row-cel">Email</div>
+                            <div class="row-cel">Password</div>
+                            <div class="row-cel">Cancella</div>
+                        </div>
+                    <?php
+                        foreach ($result as $row) {
+                            echo "
+                                <div class='row'>
+                                    <div style ='display: none'>{$row["id"]}</div>
+                                    <div class='row-cel'>{$row["name"]}</div>
+                                    <div class='row-cel'>{$row["email"]}</div>
+                                    <div class='row-cel'>{$row["password"]}</div>
+                                    <div class='row-cel first'><a href='delete_operatore.php?operator_id={$row['id']}'><i class='fa-sharp fa-solid fa-trash'></i></a></div>
+                                </div> ";
+                        }
+                    ?>
+                    </div>
+            </div>
+
+            <!--tabella utenti con toggle-->
+            <div class="utenti">
+                <h3>Tutti gli utenti</h3>
+                    <div class="container-table one">
+                        <div class="row">
+                            <div style = "display: none">Id utente</div>
+                            <div class='row-cel ut'>Email</div>
+                            <div class='row-cel ut'>Password</div>
+                            <div class="row-cel ut">Cancella</div>
+                       </div>
+                    <?php
+                        foreach ($risultato as $row) {
+                            echo "
+                                <div class='row'>
+                                    <div style ='display: none'>{$row["id"]}</div>
+                                    <div class='row-cel ut'>{$row["email"]}</div>
+                                    <div class='row-cel ut'>{$row["password"]}</div>
+                                    <div class='row-cel ut'><a href='delete_utente.php?user_id={$row['id']}'><i class='fa-sharp fa-solid fa-trash'></i></a></div>
+                                </div>";
+                        }
+                    ?>
+                    </div>
+            </div>
+
+            <!--tabella categorie con toggle-->
+            <div class="categorie">
+                <h3>Tutte le categorie</h3>
+                    <div class="container-table one">
+                        <div class="row">
+                            <div style ='display: none'>Id categoria</div>
+                            <div class='row-cel ct'>Nome</div>
+                            <div class='row-cel ct'>Cancella</div>
+                        </div>
+                    <?php
+                        foreach ($results as $row) {
+                            echo "
+                               <div class='row'>
+                                   <div style ='display: none'>{$row["id"]}</div>
+                                   <div class='row-cel ct'>{$row["name"]}</div>
+                                   <div class='row-cel ct'><a href='delete_category.php?category_id={$row['id']}'><i class='fa-sharp fa-solid fa-trash'></i></a></div>
+                               </div>";
+                        }
+                    ?>
+                    </div>
+            </div>
+
         </div>
-
-        <div class="operatori">
-            <h3>Tutti gli operatori</h3>
-            <table>
-                <thead>
-                <tr>
-                    <th style ='display: none'>Id Operatore</th>
-                    <th>Nome</th>
-                    <th>Email</th>
-                    <th>Password</th>
-                    <th>Cancella</th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php
-                foreach ($result as $row) {
-                    echo "
-            <tr>
-            <td style ='display: none'>{$row["id"]}</td>
-            <td>{$row["name"]}</td>
-            <td>{$row["email"]}</td>
-            <td>{$row["password"]}</td>
-            <th><a href='delete_operatore.php?operator_id={$row['id']}'><i class='fa-sharp fa-solid fa-trash'></i></a></th>
-        </tr>";
-                }
-                ?>
-
-                </tbody>
-            </table>
-        </div>
-
 
     </div>
-    </div>
+
+
+    <!--footer con logo e info-->
     <footer>
         <div class="ftone">
             <div class="image">
                 <img src="img/logo-tecnasoft.png" alt="">
-                <br>
-                <br>
-                <h3>About Tecnasoft</h3>
-                <br>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, aperiam architecto assumenda blanditiis dicta dolorem dolores enim eos et eum fugit impedit ipsam maiores molestiae nulla quod sint voluptatibus voluptatum.</p>
             </div>
         </div>
         <div class="fttwo">
             <div class="mails">
-                <h3>servizi</h3>
             </div>
             <div class="contacts">
-                <h4>ciao</h4>
-                <h4>ciao</h4>
-                <h4>ciao</h4>
-                <h4>ciao</h4>
-                <h4>ciao</h4>
-                <h4>ciao</h4>
+                <h4>staff@tecnasoft.it</h4>
             </div>
             <div class="social">
-                <i class="fa-brands fa-facebook"></i>
-                <i class="fa-brands fa-square-twitter"></i>
-                <i class="fa-brands fa-linkedin"></i>
+                <i class="fa-brands fa-facebook" style="padding: 0 1rem; font-size: 20px;"></i>
+                <i class="fa-brands fa-square-twitter" style="padding: 0 1rem; font-size: 20px;"></i>
+                <i class="fa-brands fa-linkedin" style="padding: 0 1rem; font-size: 20px;"></i>
             </div>
-
         </div>
-
     </footer>
 </div>
 <script src="js/admin.js"></script>
