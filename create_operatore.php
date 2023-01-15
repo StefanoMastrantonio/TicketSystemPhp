@@ -65,16 +65,36 @@ if (isset($_POST['name']) && (isset($_POST['email'])) && (isset($_POST['password
             $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
             $mail->send();
-            echo 'Mail Inviata!';
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
 } else {
-    header('location: form_creazione_operatore.php');
+    header('location: operatore/form_creazione_operatore.php');
 }
 
 $sql= "SELECT * FROM operators";
 $result = $dbh->query($sql);
 
 ?>
+
+<!DOCTYPE HTML>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/create.css">
+    <title>Creazione Operatore</title>
+</head>
+
+<body>
+<div class="container">
+    <br>
+    <h1>Mail Inviata!</h1>
+    <br><br><br><br>
+    <a href="pagina_admin.php"><div class="span">Torna alla Pagina Principale</div></a>
+</div>
+</body>
 

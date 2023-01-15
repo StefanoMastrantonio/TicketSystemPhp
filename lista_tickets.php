@@ -2,7 +2,7 @@
 session_start();
 require_once('config.php');
 if(!isset($_SESSION['id'])) {
-    header('location: accesso_operatore.php');
+    header('location: operatore/accesso_operatore.php');
 } else {
     /** @var PDO $dbh */
     $sql = "SELECT * FROM tickets";
@@ -33,7 +33,7 @@ if(!isset($_SESSION['id'])) {
 <div class="container">
     <div class="header">
         <div class="title">
-            <h2>Tutti i ticket</h2>
+            <h2>Benvenuto Operatore</h2>
         </div>
         <div class="logout">
 
@@ -43,45 +43,52 @@ if(!isset($_SESSION['id'])) {
         </div>
     </div>
     <br><br>
-
-<table border="1" cellspacing="0" cellpadding="10">
-    <thead>
-    <tr>
-        <th>Id Ticket</th>
-        <th style="display:none;">Categoria</th>
-        <th>Utente</th>
-        <th>Operatore</th>
-        <th>Titolo</th>
-        <th>Numero</th>
-        <th>data di inizio</th>
-        <th>data di fine</th>
-        <th>priorità</th>
-        <th>Status</th>
-        <th>feedback Cliente</th>
-        <th>Descrizione</th>
-    </tr>
-    </thead>
-    <tbody>
-    <?php
-    foreach ($result as $row) {
-        echo "
-        <tr>
-        <td>{$row["id"]}</td>
-        <td style='display:none;'>{$row["category_id"]}</td>
-        <td>{$row["user_id"]}</td>
-        <td>{$row["operator_id"]}</td>
-        <td>{$row["title"]}</td>
-        <td>{$row["number"]}</td>
-        <td>{$row["start_date"]}</td>
-        <td>{$row["end_date"]}</td>
-        <td>{$row["priority"]}</td>
-        <td>{$row["status"]}</td>
-        <td>{$row["user_feedback"]}</td>
-        <th><a href='messaggio.php?ticket_id={$row["id"]}'>dettaglio messaggio</a></th>
-    </tr>";
+<div class="container-main">
+    <div class="actions">
+        <div class="avatar">
+            <i class="fa-solid fa-user-gear"></i>
+        </div>
+    </div>
+    <div class="container-table">
+        <h3>Lista ticket</h3>
+        <div class='row'>
+            <div class='row-cel hd'>Id Ticket</div>
+            <div class='row-cel'>Categ.</div>
+            <div class='row-cel hd'>Utente</div>
+            <div class='row-cel hd'>Operat.</div>
+            <div class='row-cel hd'>Titolo</div>
+            <div style="display:none;">Numero</div>
+            <div class='row-cel hd'>Inizio</div>
+            <div class='row-cel hd'>Fine</div>
+            <div class='row-cel hd'>Priorità</div>
+            <div style="display:none;">Status</div>
+            <div style="display:none;">feedback Cliente</div>
+            <div class='row-cel hd'></div>
+        </div>
+        <?php
+        foreach ($result as $row) {
+            echo "
+        <div class='row'>
+            <div class='row-cel'>{$row["id"]}</div>
+            <div class='row-cel'>{$row["category_id"]}</div>
+            <div class='row-cel'>{$row["user_id"]}</div>
+            <div class='row-cel'>{$row["operator_id"]}</div>
+            <div class='row-cel'>{$row["title"]}</div>
+            <div style='display:none;'>{$row["number"]}</div>
+            <div class='row-cel'>{$row["start_date"]}</div>
+            <div class='row-cel'>{$row["end_date"]}</div>
+            <div class='row-cel'>{$row["priority"]}</div>
+            <div style='display:none;'>{$row["status"]}</div>
+            <div style='display:none;'>{$row["user_feedback"]}</div>
+            <div class='row-cel'><a href='messaggio.php?ticket_id={$row["id"]}'><span><i class='fa-solid fa-magnifying-glass'></i></span></a></div>
+        </div>
+        <hr>
+    
+        ";
     }
+
     ?>
-    </tbody>
-</table>
+    </div>
+</div>
 </div>
 </body>

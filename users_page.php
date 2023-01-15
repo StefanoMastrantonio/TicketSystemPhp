@@ -26,7 +26,7 @@ if (!isset($_SESSION['id'])) {
 <div class="container">
     <div class="container-title">
         <div class="title">
-            <h2>Benvenuto Admin!</h2>
+            <h2>Benvenuto Utente!</h2>
         </div>
         <div class="logout">
             <a href="logout.php"><i class="fa-solid fa-right-from-bracket"></i></a>
@@ -34,74 +34,76 @@ if (!isset($_SESSION['id'])) {
 
     </div>
     <br><br>
-    <a href="#" class="ticket">Inserisci ticket</a>
-    <div  class="form">
+    <div class="container-main">
+        <div class="container-ticket">
+            <div class="avatar">
+                <i class="fa-solid fa-user-gear"></i>
+            </div>
+            <div class="ticket-form">
+            <h3><a href="#" class="ticket" style="text-decoration: none;">Inserisci ticket</a></h3>
+                <div  class="form">
 
-    <form method="post" action="create_ticket.php">
-        <h3>Titolo</h3>
-        <input type="text" name="title">
-        <h3>Messaggio</h3>
-        <input type="textarea" name="text">
-        <h3>Categoria</h3>
-        <select name="category_id">
-            <option value="0"></option>
-            <option value="1">Assistenza Commerciale</option>
-            <option value="2">Assistenza Tecnica</option>
-        </select>
-        <h3>Priorità</h3>
-        <select name="priority">
-            <option value="0"></option>
-            <option value="1">Bassa</option>
-            <option value="2">Media</option>
-            <option value="3">Alta</option>
-        </select>
-        <button type="submit">Submit to another page</button>
-    </form>
+                    <form method="post" action="create_ticket.php">
+                        <input type="text" name="title" placeholder="Titolo">
+                        <input type="textarea" name="text" placeholder="Scrivi qui un messaggio">
+                        <select name="category_id">
+                            <option value="0">Scegli la categoria</option>
+                            <option value="1">Assistenza Commerciale</option>
+                            <option value="2">Assistenza Tecnica</option>
+                        </select>
+                        <select name="priority">
+                            <option value="0">scegli la priorità</option>
+                            <option value="1">Bassa</option>
+                            <option value="2">Media</option>
+                            <option value="3">Alta</option>
+                        </select>
+                        <button type="submit">Submit to another page</button>
+                    </form>
+                </div>
+            </div>
+        </div>
 
+        <div class="container-table">
+        <h3>Lista Ticket inviati</h3>
+            <div class='row'>
+                <div class='row-cel hd'>Id Ticket</div>
+                <div class='row-cel hd'>Categ.</div>
+                <div class='row-cel hd'>Utente</div>
+                <div class='row-cel hd'>Operat.</div>
+                <div class='row-cel hd'>Titolo</div>
+                <div style='display:none;'>Numero</div>
+                <div class='row-cel hd'>Inizio</div>
+                <div class='row-cel hd'>Fine</div>
+                <div class='row-cel hd'>Priorità</div>
+                <div style='display:none;'>Status</div>
+                <div style='display:none;'>feedback Cliente</div>
+                <div class='row-cel hd'></div>
+            </div>
+        <?php
+        $sql = "SELECT * FROM tickets WHERE user_id= ".$_SESSION['id'];
+        $result= $dbh->query($sql);
+        foreach ($result as $row) {
+            echo "
+            <div class='row'>
+                <div class='row-cel'>{$row["id"]}</div>
+                <div class='row-cel'>{$row["category_id"]}</div>
+                <div class='row-cel'>{$row["user_id"]}</div>
+                <div class='row-cel'>{$row["operator_id"]}</div>
+                <div class='row-cel'>{$row["title"]}</div>
+                <div style='display:none;'>{$row["number"]}</div>
+                <div class='row-cel'>{$row["start_date"]}</div>
+                <div class='row-cel'>{$row["end_date"]}</div>
+                <div class='row-cel'>{$row["priority"]}</div>
+                <div style='display:none;'>{$row["status"]}</div>
+                <div style='display:none;'>{$row["user_feedback"]}</div>
+                <div class='row-cel'><a href='messaggio.php?ticket_id={$row["id"]}'><span><i class='fa-solid fa-magnifying-glass'></i></span></a></div>
+            </div>";
+        }
+        ?>
+
+        </div>
+    </div>
 </div>
-
-<h2>Lista Ticket inviati</h2>
-<table border="1" cellspacing="0" cellpadding="10">
-    <thead>
-    <tr>
-        <th>Id Ticket</th>
-        <th>Categoria</th>
-        <th>Utente</th>
-        <th>Operatore</th>
-        <th>Titolo</th>
-        <th>Numero</th>
-        <th>data di inizio</th>
-        <th>data di fine</th>
-        <th>priorità</th>
-        <th>Status</th>
-        <th>feedback Cliente</th>
-        <th>Descrizione</th>
-    </tr>
-    </thead>
-    <tbody>
-    <?php
-    $sql = "SELECT * FROM tickets WHERE user_id= ".$_SESSION['id'];
-    $result= $dbh->query($sql);
-    foreach ($result as $row) {
-        echo "
-        <tr>
-        <td>{$row["id"]}</td>
-        <td>{$row["category_id"]}</td>
-        <td>{$row["user_id"]}</td>
-        <td>{$row["operator_id"]}</td>
-        <td>{$row["title"]}</td>
-        <td>{$row["number"]}</td>
-        <td>{$row["start_date"]}</td>
-        <td>{$row["end_date"]}</td>
-        <td>{$row["priority"]}</td>
-        <td>{$row["status"]}</td>
-        <td>{$row["user_feedback"]}</td>
-        <th><a href='messaggio.php?ticket_id={$row["id"]}' > dettaglio messaggio</a></th>
-    </tr>";
-    }
-    ?>
-    </tbody>
-</table>
 </div>
 <script src="js/script.js"></script>
 </body>

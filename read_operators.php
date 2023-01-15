@@ -3,7 +3,7 @@ session_start();
 require_once('config.php');
 if (!isset($_SESSION['id'])) {
     print_r($_SESSION['id']);
-    header ("location: admin.php");
+    header ("location: admin/admin.php");
 } else {
 
     /** @var PDO $dbh */
@@ -34,7 +34,7 @@ if (!isset($_SESSION['id'])) {
             <td>{$row["name"]}</td>
             <td>{$row["email"]}</td>
             <td>{$row["password"]}</td>
-            <th><a href='delete_operatore.php?operator_id={$row['id']}'><i class='fa-sharp fa-solid fa-trash'></i></a></th>
+            <th><a href='operatore/delete_operatore.php?operator_id={$row['id']}'><i class='fa-sharp fa-solid fa-trash'></i></a></th>
         </tr>";
         }
         ?>

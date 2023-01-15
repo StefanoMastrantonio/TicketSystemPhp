@@ -15,7 +15,6 @@ body {
 
 i {
     color: white;
-    font-size: 30px;
 }
 
 i:hover {
@@ -24,7 +23,6 @@ i:hover {
 
 .container-main {
     display: flex;
-    border: 1px solid white;
     min-height: 70vh;
 }
 
@@ -51,15 +49,85 @@ i:hover {
     margin: 1rem;
 }
 
+.avatar {
+    width: 100%;
+    height: 35%;
+    border-radius: 50%;
+    position: relative;
+    background: transparent;
+}
+
+.avatar:hover {
+    box-shadow: -1px 4px 16px 8px #9c86bb;
+    transition-duration: 0.7s;
+}
+.avatar i {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    font-size: 100px;
+}
+
+.avatar i:hover {
+    color: #c1d405;
+    transition-duration: 0.2s;
+}
+
+.actions a {
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.avatar a span:hover {
+    color: #c1d405;
+    transition-duration: 0.2s;
+}
+
 
 .container-table {
     display: flex;
     flex-direction: column;
-    margin: 0 4rem;
+    width: 100%;
 }
 
-.categorie, .operatori {
+.operatori, .utenti, .categorie{
     display:none;
+    margin: 2rem 0;
+    min-width: 50%;
+}
+
+.operatori h3, .utenti h3, .categorie h3 {
+    margin: 2rem 1rem;
+}
+
+.row {
+    display: flex;
+    justify-content: space-around;
+}
+
+.row-cel {
+    width: calc((100% /4) - 20px);
+    margin: 1rem 0;
+    text-align: left;
+}
+
+.ut {
+    min-width: calc((100% / 3)- 30px);
+}
+
+.ct {
+    min-width: calc((100% / 2) - 50px);
+}
+
+.one {
+    padding: 1rem;
+    border-radius: 25px;
+}
+
+.one:hover {
+    box-shadow: -1px 4px 16px 8px #9c86bb;
+    transition-duration: 0.7s;
+    border-radius: 25px;
 }
 
 .active {
@@ -96,22 +164,21 @@ footer {
 }
 
 .ftone {
-    border: 1px solid white;
     width: 33%;
-    height: 30vh;
-    padding: 1rem;
 }
 
 .fttwo {
-    border: 1px solid white;
     width: 66%;
-    heigth: 30vh;
     display: flex;
 }
 
 .mails, .contacts, .social {
     width: 33%;
-    padding: 1rem;
+    padding-top: 3rem;
+}
+
+.social i {
+    text-align: center;
 }
 
 .image img {
@@ -130,6 +197,13 @@ nav ul li a {
     color:white;
     justify-content: space-between;
     margin-left: 1rem;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+nav ul li a:hover {
+    color: #c1d405;
+    transition-duration: 0.2s;
 }
 
 .container {

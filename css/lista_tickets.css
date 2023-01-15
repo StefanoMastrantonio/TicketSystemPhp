@@ -17,12 +17,99 @@ body {
     width: 60%;
     margin: 0 auto;
 }
+h2 {
+    font-size: 28px;
+}
+
 .header {
     display: flex;
     justify-content: space-between;
     padding: 1rem 0;
+    margin: 1rem 0;
 }
 a{
     color: white;
 }
+
+
+.container-main {
+    display: flex;
+}
+
+.actions {
+    width: 25%;
+    min-height: 100vh;
+    margin-top: 1rem;
+}
+
+.avatar {
+    width: 70%;
+    height: 22%;
+    border-radius: 50%;
+    position: relative;
+    background: transparent;
+}
+
+.avatar:hover {
+    box-shadow: -1px 4px 16px 8px #9c86bb;
+    transition-duration: 0.7s;
+}
+.avatar i {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    font-size: 100px;
+}
+
+.avatar i:hover {
+    color: #c1d405;
+    transition-duration: 0.2s;
+}
+
+
+.container-table {
+    width: 75%;
+    min-height: 100%;
+    padding: 1rem;
+    border-radius: 25px;
+}
+
+.container-table:hover {
+    box-shadow: -1px 4px 16px 8px #9c86bb;
+    transition-duration: 0.7s;
+    min-height: 100%;
+    border-radius: 25px;
+}
+
+h3 {
+    margin: 1rem 0;
+    font-size: 20px;
+    padding: 1rem;
+}
+
+.row {
+    display: flex;
+}
+
+.row-cel {
+    width: calc((100% / 8) - 40px) ;
+    padding: 1rem 0;
+    margin: 0 auto;
+}
+
+.hd {
+    font-size: 20px;
+}
+
+span {
+    margin: 0 auto;
+}
+
+span i:hover {
+    text-align: center;
+    font-size: 20px;
+    transition-duration: 0.3s;
+    color: #c1d405;
+}
+
 

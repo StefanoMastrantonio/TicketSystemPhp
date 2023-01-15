@@ -35,13 +35,13 @@ if (isset($_POST['opzioni'])) {
     $opzioni = $_POST['opzioni'];
         switch ($opzioni) {
         case 'operatore':
-            header ("location: operatore/accesso_operatore.php");
+            header ("location: accesso_operatore.php");
             break;
         case 'utente':
-            header ("location: utente/accesso_utente.php");
+            header ("location: accesso_utente.php");
             break;
         case 'admin':
-            header ("location: admin/admin.php");
+            header ("location: admin.php");
             break;
    }
 }
