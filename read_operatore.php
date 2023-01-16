@@ -14,7 +14,7 @@ if ($_POST['goto'] == "0") {
     } catch (PDOException $e) {
         print $e->getMessage();
     };
-    header ("location: form_accesso.php");
+    header ("location: home.php");
 }?>
 <html>
 <head>
@@ -26,7 +26,7 @@ if ($_POST['goto'] == "0") {
 </head>
 <body>
 <h2>Registrati</h2>
-<form action="../form_accesso.php" method="post">
+<form action="../home.php" method="post">
 
     <label for="name">Nome</label>
     <input type="text" id="name" name="name"><br><br>

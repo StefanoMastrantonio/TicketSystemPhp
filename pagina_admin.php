@@ -42,6 +42,7 @@ if (!isset($_SESSION['id'])) {
         <!--titolo-->
         <div class="title">
             <h1>Benvenuto Admin!</h1>
+            <br>
             <p>che cosa vuoi fare?</p>
         </div>
         <!--logout-->
@@ -183,9 +184,9 @@ if (!isset($_SESSION['id'])) {
                 <h4>staff@tecnasoft.it</h4>
             </div>
             <div class="social">
-                <i class="fa-brands fa-facebook" style="padding: 0 1rem; font-size: 20px;"></i>
-                <i class="fa-brands fa-square-twitter" style="padding: 0 1rem; font-size: 20px;"></i>
-                <i class="fa-brands fa-linkedin" style="padding: 0 1rem; font-size: 20px;"></i>
+                <a href="https://it-it.facebook.com/TECNASOFT/"><i class="fa-brands fa-facebook" style="padding: 0 1rem; font-size: 20px;"></i></a>
+                <a href="https://twitter.com/tecnasoft"><i class="fa-brands fa-square-twitter" style="padding: 0 1rem; font-size: 20px;"></i></a>
+                <a href="https://it.linkedin.com/company/tecnasoft?original_referer=https%3A%2F%2Fwww.google.com%2F"><i class="fa-brands fa-linkedin" style="padding: 0 1rem; font-size: 20px;"></i></a>
             </div>
         </div>
     </footer>

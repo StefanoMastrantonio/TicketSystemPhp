@@ -13,7 +13,7 @@ if ($_POST['goto'] == "1") {
     } catch (PDOException $e) {
         print $e->getMessage();
     };
-    header ("location: form_accesso.php");
+    header ("location: home.php");
 }?>
 <html>
 <head>

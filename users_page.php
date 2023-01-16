@@ -37,7 +37,7 @@ if (!isset($_SESSION['id'])) {
     <div class="container-main">
         <div class="container-ticket">
             <div class="avatar">
-                <i class="fa-solid fa-user-gear"></i>
+                <i class="fa-solid fa-user"></i>
             </div>
             <div class="ticket-form">
             <h3><a href="#" class="ticket" style="text-decoration: none;">Inserisci ticket</a></h3>
@@ -103,8 +103,29 @@ if (!isset($_SESSION['id'])) {
 
         </div>
     </div>
+    <footer>
+        <div class="ftone">
+            <div class="image">
+                <img src="img/logo-tecnasoft.png" alt="">
+            </div>
+        </div>
+        <div class="fttwo">
+            <div class="mails">
+            </div>
+            <div class="contacts">
+                <h4>staff@tecnasoft.it</h4>
+            </div>
+            <div class="social">
+                <a href="https://it-it.facebook.com/TECNASOFT/"><i class="fa-brands fa-facebook" style="padding: 0 1rem; font-size: 20px;"></i></a>
+                <a href="https://twitter.com/tecnasoft"><i class="fa-brands fa-square-twitter" style="padding: 0 1rem; font-size: 20px;"></i></a>
+                <a href="https://it.linkedin.com/company/tecnasoft?original_referer=https%3A%2F%2Fwww.google.com%2F"><i class="fa-brands fa-linkedin" style="padding: 0 1rem; font-size: 20px;"></i></a>
+            </div>
+        </div>
+    </footer>
 </div>
+
 </div>
+
 <script src="js/script.js"></script>
 </body>
 </html>

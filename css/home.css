@@ -36,6 +36,10 @@ h1 {
     color:white;
 }
 
+.form {
+    margin-bottom: 5rem;
+}
+
 select {
     width: 250px;
     height:30px;
@@ -47,8 +51,8 @@ select {
 
 select:hover {
     border-radius: 25px;
-    width: 255px;
-    height: 33px;
+    width: 250px;
+    height: 30px;
     color:black;
     box-shadow: -1px 4px 16px 8px #9c86bb;
     background-color: white;
@@ -58,5 +62,22 @@ select:hover {
 }
 
 option {
-    color: black;
+    color:black;
+}
+
+.mini-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.company img {
+    width: 40%;
+}
+
+.help i {
+    color: white;
+}
+
+.help i:hover {
+    color: #c1d405;
 }

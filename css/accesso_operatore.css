@@ -18,7 +18,7 @@ body {
     height: 300px;
     top:30%;
     left:40%;
-    padding: 50px;
+    padding: 30px;
     border-radius: 10px;
     transition-delay: 0.2s;
 }
@@ -34,17 +34,16 @@ h1, input {
 
 input {
     border-radius: 25px;
-    width: 250px;
+    width: 290px;
     height: 30px;
     color:black;
     border:1px solid transparent;
     opacity: 0.3;
+    margin: 0 auto;
 }
 
 input:hover {
     border-radius: 25px;
-    width: 255px;
-    height: 33px;
     color:black;
     box-shadow: -1px 4px 16px 8px #9c86bb;
     opacity: 0.9;
@@ -66,5 +65,17 @@ button:hover {
     transition-duration: 0.5s;
     color: #c1d405;
     border-radius: 25px;
+}
+.mini-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.company img {
+    width: 40%;
+}
+
+.help i:hover {
+    color: #c1d405;
 }
 

@@ -112,4 +112,34 @@ span i:hover {
     color: #c1d405;
 }
 
+footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: transparent;
+}
+
+.ftone {
+    width: 33%;
+    padding: 1rem;
+}
+
+.fttwo {
+    width: 66%;
+    display: flex;
+}
+
+.mails, .contacts, .social {
+    width: 33%;
+    padding-top: 3rem;
+}
+
+.social i {
+    text-align: center;
+}
+
+.image img {
+    width: 100%;
+}
+
+
 

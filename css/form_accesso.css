@@ -65,6 +65,11 @@ input:hover {
     margin: 0.5rem 1.2rem;
 }
 
+a {
+    color:white;
+    margin-right: 0;
+}
+
 ::-webkit-input-placeholder {
     color: black;
     text-align:center;

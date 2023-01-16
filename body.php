@@ -23,12 +23,12 @@ function body(array $data) : string {
     <p>le tue credenziali sono:</p>';
     foreach ($data as $key=>$value){
         //nel foreach ho fatto una variabile html in cui ho inserito i parametri key e value presenti in data
-        $html.= '<p>'.$key. ' '. $value. '</p>';
+        $html.= '<p>'.$key. ': '. $value. '</p>';
     }
     $html .='
     
     
-    <p>per assistenza invia una mail a <a href="">assistenza@mail.it</a></p>
+    <p>per assistenza invia una mail a <a href="">staff@tecnasoft.it</a></p>
 </main>
 <footer style="text-align: end; width: 50%; margin: auto;">
     <i class="fa-brands fa-facebook"></i>
