@@ -27,13 +27,13 @@ avat.addEventListener("click", function() {
 })
 
 // Get the modal
-const modal = document.getElementById("myModal");
+let modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
-const btn = document.getElementById("myBtn");
+let btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
-const span = document.getElementsByClassName("close")[0];
+let span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
@@ -46,11 +46,11 @@ span.onclick = function() {
 }
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
+// window.onclick = function(event) {
+//     if (event.target == modal) {
+//         modal.style.display = "none";
+//     }
+// }
 
 function addOperator() {
     let nameAdd = $('#name'). val();
@@ -73,13 +73,13 @@ function addOperator() {
 }
 
 // Get the modal
-const modal1 = document.getElementById("myModal1");
+let modal1 = document.getElementById("myModal1");
 
 // Get the button that opens the modal
-const btn1 = document.getElementById("myBtn1");
+let btn1 = document.getElementById("myBtn1");
 
 // Get the <span> element that closes the modal
-const span1 = document.getElementsByClassName("close")[0];
+let span1 = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
 btn1.onclick = function() {
@@ -92,11 +92,11 @@ span1.onclick = function() {
 }
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal1) {
-        modal1.style.display = "none";
-    }
-}
+// window.onclick = function(event) {
+//     if (event.target == modal1) {
+//         modal1.style.display = "none";
+//     }
+// }
 
 function addUser() {
     let emailAdd = $('#email1').val();
@@ -116,13 +116,13 @@ function addUser() {
     })
 }
 
-const modal2 = document.getElementById("myModal2");
+let modal2 = document.getElementById("myModal2");
 
 // Get the button that opens the modal
-const btn2 = document.getElementById("myBtn2");
+let btn2 = document.getElementById("myBtn2");
 
 // Get the <span> element that closes the modal
-const span2 = document.getElementsByClassName("close")[0];
+let span2 = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
 btn2.onclick = function() {
@@ -138,7 +138,13 @@ span2.onclick = function() {
 window.onclick = function(event) {
     if (event.target == modal2) {
         modal2.style.display = "none";
+    } else if (event.target == modal1) {
+        modal1.style.display = "none";
+    } else if (event.target == modal) {
+        modal.style.display = "none";
     }
+
+
 }
 
 function addCategory() {

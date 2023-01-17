@@ -30,7 +30,7 @@ i:hover {
 .menu {
     display: flex;
     flex-direction: column;
-    width: 15%;
+    width:20%;
 
 }
 
@@ -175,12 +175,23 @@ nav ul li a:hover {
 #myBtn, #myBtn1, #myBtn2 {
     margin-top: 1rem;
     color: white;
-    text-align: center;
-    width: 200px;
+    width: 100%;
     height: 30px;
     background-color: transparent;
     border: transparent;
+    border-radius: 25px;
+}
 
+#myBtn:hover, #myBtn1:hover, #myBtn2:hover {
+    margin-top: 1rem;
+    color: black;
+    width: 100%;
+    height: 30px;
+    background-color: white;
+    border: transparent;
+    box-shadow: -1px 4px 16px 8px #9c86bb;
+    transition-duration: 0.7s;
+    border-radius: 25px;
 }
 
 /* The Modal (background) */
@@ -199,12 +210,63 @@ nav ul li a:hover {
 
 /* Modal Content/Box */
 .modal-content {
-    background-color: #fefefe;
+    background-color: transparent;
     margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 30%; /* Could be more or less, depending on screen size */
+    min-height: 22%;
+    border-radius: 25px;
 }
+
+.modal-form {
+    color: black;
+    border: 1px solid black;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px 0 20px;
+    border-radius: 25px;
+    border: 1px solid transparent;
+    padding-bottom: 25px;
+}
+
+.modal-form:hover {
+    box-shadow: -1px 4px 16px 8px #9c86bb;
+    transition-duration: 0.7s;
+}
+
+.modal-form input {
+    width: 100%;
+    height: 30px;
+    border-radius: 25px;
+    border: 1px solid transparent;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.modal-form input:hover {
+    box-shadow: -1px 4px 16px 8px #b39cd3;
+    transition-duration: 0.7s;
+    cursor: pointer;
+    color: #565454
+}
+
+.modal-form button {
+    width: 100%;
+    background-color: transparent;
+    color: #aaa;
+    border: 1px solid transparent;
+}
+
+.modal-form button:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.modal-form span {
+    text-align: end;
+}
+
+
 
 /* The Close Button */
 .close {
@@ -216,7 +278,7 @@ nav ul li a:hover {
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: white;
     text-decoration: none;
     cursor: pointer;
 }

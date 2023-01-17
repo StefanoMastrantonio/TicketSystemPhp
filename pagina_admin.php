@@ -42,58 +42,51 @@ if (!isset($_SESSION['id'])) {
             <h3>Benvenuto Admin!</h3>
         </div>
         <div class="actions">
+
+            <!--Bottone Modale Utente-->
+            <button id="myBtn1" onclick="addUser()">Crea Nuovo Utente</button>
+            <!-- Modale Utente -->
+            <div id="myModal1" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <div class="modal-form">
+                        <span class="close">&times;</span>
+                        <form action="create_utente.php" method="POST">
+                            <label for="email" style="display:none">Email</label>
+                            <input type="email" id="email1" name="email" placeholder="Crea Email Nuovo Utente">
+                            <label for="password" style="display:none">Password</label>
+                            <input type="password" id="password1" name="password" placeholder="Password">
+                            <button type="button" onclick="addUser()">Crea</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
             <!-- Bottone Modale Operatore -->
+
             <button id="myBtn" onclick="addOperator()">Crea Nuovo Operatore</button>
              <!-- Modale Operatore -->
             <div id="myModal" class="modal">
 
                 <!-- Modal content -->
                 <div class="modal-content">
+                    <div class="modal-form">
                     <span class="close">&times;</span>
-                    <p style="color:black">
-                        <div class="container">
-                            <h1>Nuovo operatore</h1>
-                            <br>
+
                             <form action="create_operatore.php" method="POST">
-                                <label for="name">Nome</label><br>
-                                <input type="text" id="name" value="" name="name" placeholder="Nome">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" placeholder="Email">
-                                <label for="password">Password</label>
+                                <label for="name" style="display:none;">Nome</label><br>
+                                <input type="text" id="name" value="" name="name" placeholder="Crea Nome Nuovo Operatore">
+                                <label for="email"style="display:none;">Email</label>
+                                <input type="email" id="email" name="email" placeholder="Crea Email Nuovo Operatore">
+                                <label for="password"style="display:none;">Password</label>
                                 <input type="password" id="password" name="password" placeholder="Password">
                                 <button type="button" onclick="addOperator()">Crea</button>
                             </form>
-                        </div>
-                    </p>
+                    </div>
                 </div>
 
             </div>
-
-
-            <!--Bottone Modale Utente-->
-            <button id="myBtn1" onclick="addUser()">Crea Nuovo Utente</button>
-             <!-- Modale Utente -->
-            <div id="myModal1" class="modal">
-
-                <!-- Modal content -->
-            <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <p style="color:black">
-                        <div class="container">
-                            <h1>Nuovo operatore</h1>
-                            <br>
-                            <form action="create_utente.php" method="POST">
-                                 <label for="email">Email</label>
-                                <input type="email" id="email1" name="email" placeholder="Email">
-                                <label for="password">Password</label>
-                                <input type="password" id="password1" name="password" placeholder="Password">
-                                <button type="button" onclick="addUser()">Crea</button>
-                            </form>
-                        </div>
-                    </p>
-                </div>
-            </div>
-
 
             <!--Bottone Modale Categoria-->
             <button id="myBtn2" onclick="addCategory()">Crea Nuova Categoria</button>
@@ -102,19 +95,15 @@ if (!isset($_SESSION['id'])) {
             <div id="myModal2" class="modal">
             <!-- Modal content -->
                 <div class="modal-content">
-                            <span class="close">&times;</span>
-                            <p style="color:black">
-                                <div class="container">
-                                    <h1>Nuovo operatore</h1>
-                                    <br>
-                                    <form action="create_category.php" method="POST">
-                                        <label for="name">Nome</label><br>
-                                        <input type="text" id="name2" value="" name="name" placeholder="Nome">
-                                        <button type="button" onclick="addCategory()">Crea</button>
-                                    </form>
-                                </div>
-                            </p>
-                        </div>
+                    <div class="modal-form">
+                        <span class="close">&times;</span>
+                            <form action="create_category.php" method="POST">
+                                 <label for="name" style="display:none;">Nome</label><br>
+                                 <input type="text" id="name2" value="" name="name" placeholder="Crea Nuova Categoria">
+                                  <button type="button" onclick="addCategory()">Crea</button>
+                            </form>
+                    </div>
+                </div>
             </div>
 
         </div>
