@@ -13,6 +13,8 @@ require_once('body.php');
 if (isset($_SESSION['msg'])) {
     echo $_SESSION['msg'];
 }
+
+
 if (isset($_POST['name']) && (isset($_POST['email'])) && (isset($_POST['password']))) {
 //    $name = $_POST['name'];
 //    $email = $_POST['email'];

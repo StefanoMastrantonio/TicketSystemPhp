@@ -7,7 +7,6 @@
 }
 
 body {
-
     background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(65,65,129,1) 35%, rgba(0,212,255,1) 100%);
     min-height: 100vh;
     color: white;
@@ -23,41 +22,21 @@ i:hover {
 
 .container-main {
     display: flex;
+    flex-direction: column;
     min-height: 70vh;
-}
-a:hover {
-    color: #c1d405;
+    width: 85%;
 }
 
-.container-title {
-    margin: 1rem auto 3rem;
-    display: flex;
-    justify-content: space-between;
-}
-
-.logout {
-    justify-content: end;
-}
-.logout a i{
-    padding: 1rem;
-}
 .menu {
     display: flex;
     flex-direction: column;
-    margin: 1rem;
-    width: 30%;
-}
+    width: 15%;
 
-.menu a {
-    margin: 1rem;
 }
 
 .avatar {
-    width: 100%;
-    height: 30%;
-    border-radius: 50%;
-    position: relative;
     background: transparent;
+    margin-top: 1rem;
 }
 
 .avatar:hover {
@@ -65,20 +44,8 @@ a:hover {
     transition-duration: 0.7s;
 }
 .avatar i {
-    position: absolute;
-    top: 25%;
-    left: 25%;
-    font-size: 100px;
-}
-
-.avatar i:hover {
-    color: #c1d405;
-    transition-duration: 0.2s;
-}
-
-.actions a {
-    text-decoration: none;
-    font-size: 17px;
+    font-size: 70px;
+    padding: 1rem;
 }
 
 .avatar a span:hover {
@@ -86,22 +53,19 @@ a:hover {
     transition-duration: 0.2s;
 }
 
+.actions {
+    min-height: 80vh;
+}
 
 .container-table {
-    display: flex;
-    flex-direction: column;
     width: 100%;
     min-height: 750px;
 }
 
 .operatori, .utenti, .categorie{
     display:none;
-    margin: 2rem 0;
     min-width: 50%;
-}
-
-.operatori h3, .utenti h3, .categorie h3 {
-    margin: 2rem 1rem;
+   margin: 3rem 0 0 5rem;
 }
 
 .row {
@@ -161,38 +125,12 @@ th {
     margin: 2rem 0;
 }
 
-footer {
-    display: flex;
-    justify-content: space-between;
-    background-color: transparent;
-}
 
-.ftone {
-    width: 33%;
-    padding: 1rem;
-}
-
-.fttwo {
-    width: 66%;
-    display: flex;
-}
-
-.mails, .contacts, .social {
-    width: 33%;
-    padding-top: 3rem;
-}
 
 .social i {
     text-align: center;
 }
 
-.image img {
-    width: 100%;
-}
-
-nav {
-    style: none;
-}
 nav ul {
     list-style: none;
     display:flex;
@@ -201,9 +139,9 @@ nav ul {
 nav ul li a {
     color:white;
     justify-content: space-between;
-    margin-left: 1rem;
     text-decoration: none;
     font-size: 20px;
+    margin: 1rem;
 }
 
 nav ul li a:hover {
@@ -211,9 +149,80 @@ nav ul li a:hover {
     transition-duration: 0.2s;
 }
 
-.container {
-    width: 50%;
-    margin: 0 auto;
+.link {
+    margin-top: 3rem;
 }
+
+.container {
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+}
+
+.contacts {
+    display:flex;
+
+}
+
+.image a img{
+    width: 100%;
+}
+
+.social a {
+    text-align: start;
+}
+
+#myBtn, #myBtn1, #myBtn2 {
+    margin-top: 1rem;
+    color: white;
+    text-align: center;
+    width: 200px;
+    height: 30px;
+    background-color: transparent;
+    border: transparent;
+
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+
 
 

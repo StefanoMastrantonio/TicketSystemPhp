@@ -10,63 +10,25 @@
 
 </head>
 <body style="background-color: red";>
-<div class="container"  >
-    <header style="background: #101445;">
-        <img src="img/logo-tecnasoft.png" alt="">
-    </header>
-    <main style="text-align: center; width: 50%; margin: 5rem auto;">
-        <h2>ciao!</h2>
-        <p >Abbiamo attivato un nuovo profilo</p>
-        <p>le tue credenziali sono:</p>
-        <p>per assistenza invia una mail a <a href="" >assistenza@mail.it</a></p>
-    </main>
-    <footer style="text-align: end; width: 50%; margin: auto;">
-        <i class="fa-brands fa-facebook"></i>
-        <i class="fa-brands fa-square-twitter"></i>
-        <i class="fa-brands fa-linkedin"></i>
-    </footer>
+<!-- Trigger/Open The Modal -->
+<button id="myBtn">Operator</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Some text in the Modal..</p>
+    </div>
+
 </div>
 
-<img src="img/social-removebg-preview.png" alt="">
-
-<Table>
-    <thead>
-        <Tr>
-            <th>nome colonna1</th>
-            <th>Nome colonna2</th>
-        </Tr>
-    </thead>
-    <ul>
-        <li> prima colonna </ li>
-
-        <li> seconda colonna </ li>
-    </ul>
-
-
-</ Table>
-
 <style>
-    #talkbubble {
-        width: 120px;
-        height: 80px;
-        background: #0060A0;
-        position: relative;
-        -moz-border-radius:    10px;
-        -webkit-border-radius: 10px;
-        border-radius:         10px;
-    }
-    #talkbubble:before {
-        content:"";
-        position: absolute;
-        right: 100%;
-        top: 26px;
-        width: 0;
-        height: 0;
-        border-top: 13px solid transparent;
-        border-right: 26px solid #0060A0;
-        border-bottom: 13px solid transparent;
-    }
+
 </style>
-<div id="talkbubble"></div>
+<script>
+
+</script>
 
 </body>

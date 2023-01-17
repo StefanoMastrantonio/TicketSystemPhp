@@ -12,15 +12,15 @@ require_once('body.php');
 if (isset($_SESSION['msg'])) {
     echo $_SESSION['msg'];
 }
-if ((isset($_POST['email'])) && (isset($_POST['password']))) {
+if ((isset($_POST['email1'])) && (isset($_POST['password1']))) {
 //    $email = $_POST['email'];
 //    $password = $_POST['password'];
 //    print_r($_POST);
 
     /** @var PDO $dbh */
-    $stmt = $dbh->prepare("INSERT IGNORE INTO users (password, email) VALUES(:password, :email)");
-    $stmt->bindParam(':email', $_POST['email']);
-    $stmt->bindParam(':password', $_POST['password']);
+    $stmt = $dbh->prepare("INSERT IGNORE INTO users (password, email) VALUES(:password1, :email1)");
+    $stmt->bindParam(':email1', $_POST['email1']);
+    $stmt->bindParam(':password1', $_POST['password1']);
     $stmt->execute();
 
     $mail = new PHPMailer(true);

@@ -5,11 +5,11 @@ if (isset($_SESSION['msg'])) {
     echo $_SESSION['msg'];
 }
 
-if (isset($_POST['name'])) {
-    $name = $_POST['name'];
+if (isset($_POST['name2'])) {
+    $name = $_POST['name2'];
     /** @var PDO $dbh */
-    $sql = $dbh->prepare("INSERT IGNORE INTO categories (name) VALUES (:name)");
-    $sql->bindParam(':name', $_POST['name']);
+    $sql = $dbh->prepare("INSERT IGNORE INTO categories (name) VALUES (:name2)");
+    $sql->bindParam(':name2', $_POST['name2']);
     try {
         $sql->execute();
     } catch (PDOException $e) {

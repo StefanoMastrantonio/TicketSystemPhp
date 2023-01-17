@@ -28,9 +28,7 @@ if (!isset($_SESSION['id'])) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/pagina_admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">-->
-<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
-
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
     <title>Pagina Admin</title>
 
 </head>
@@ -38,60 +36,144 @@ if (!isset($_SESSION['id'])) {
 
 <div class="container">
     <!--Benvenuto e logout-->
-    <div class="container-title">
-        <!--titolo-->
-        <div class="title">
-            <h1>Benvenuto Admin!</h1>
-            <br>
-            <p>che cosa vuoi fare?</p>
+    <div class="menu">
+        <div class="avatar">
+            <i class="fa-solid fa-user-gear"></i>
+            <h3>Benvenuto Admin!</h3>
         </div>
-        <!--logout-->
-        <div class="logout">
-            <a href="logout.php"><i class="fa-solid fa-right-from-bracket"></i></a>
+        <div class="actions">
+            <!-- Bottone Modale Operatore -->
+            <button id="myBtn" onclick="addOperator()">Crea Nuovo Operatore</button>
+             <!-- Modale Operatore -->
+            <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p style="color:black">
+                        <div class="container">
+                            <h1>Nuovo operatore</h1>
+                            <br>
+                            <form action="create_operatore.php" method="POST">
+                                <label for="name">Nome</label><br>
+                                <input type="text" id="name" value="" name="name" placeholder="Nome">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="Email">
+                                <label for="password">Password</label>
+                                <input type="password" id="password" name="password" placeholder="Password">
+                                <button type="button" onclick="addOperator()">Crea</button>
+                            </form>
+                        </div>
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!--Bottone Modale Utente-->
+            <button id="myBtn1" onclick="addUser()">Crea Nuovo Utente</button>
+             <!-- Modale Utente -->
+            <div id="myModal1" class="modal">
+
+                <!-- Modal content -->
+            <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p style="color:black">
+                        <div class="container">
+                            <h1>Nuovo operatore</h1>
+                            <br>
+                            <form action="create_utente.php" method="POST">
+                                 <label for="email">Email</label>
+                                <input type="email" id="email1" name="email" placeholder="Email">
+                                <label for="password">Password</label>
+                                <input type="password" id="password1" name="password" placeholder="Password">
+                                <button type="button" onclick="addUser()">Crea</button>
+                            </form>
+                        </div>
+                    </p>
+                </div>
+            </div>
+
+
+            <!--Bottone Modale Categoria-->
+            <button id="myBtn2" onclick="addCategory()">Crea Nuova Categoria</button>
+
+            <!--Modale Categoria-->
+            <div id="myModal2" class="modal">
+            <!-- Modal content -->
+                <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <p style="color:black">
+                                <div class="container">
+                                    <h1>Nuovo operatore</h1>
+                                    <br>
+                                    <form action="create_category.php" method="POST">
+                                        <label for="name">Nome</label><br>
+                                        <input type="text" id="name2" value="" name="name" placeholder="Nome">
+                                        <button type="button" onclick="addCategory()">Crea</button>
+                                    </form>
+                                </div>
+                            </p>
+                        </div>
+            </div>
+
+        </div>
+        <div class="footer-menu">
+        <div class="contacts">
+            <div class="social">
+                <a href="https://it-it.facebook.com/TECNASOFT/"><i class="fa-brands fa-facebook" style="padding: 0 1rem; font-size: 20px;"></i></a>
+                <a href="https://twitter.com/tecnasoft"><i class="fa-brands fa-square-twitter" style="padding: 0 1rem; font-size: 20px;"></i></a>
+                <a href="https://it.linkedin.com/company/tecnasoft?original_referer=https%3A%2F%2Fwww.google.com%2F"><i class="fa-brands fa-linkedin" style="padding: 0 1rem; font-size: 20px;"></i></a>
+            </div>
+            <a href="https://assistenza.tecnasoft.it/"><i class="fa-solid fa-circle-info"></i></a>
+        </div>
+        <div class="image">
+            <a href="https://www.tecnasoft.it/"><img src="img/logo-tecnasoft.png" alt=""></a>
         </div>
     </div>
+    </div>
+
+
 
     <!--barra di navigazione per vedere tabelle operatori, utenti e categorie-->
-    <nav class="navbar navbar-expand-lg bg-transparent">
-        <div class="container-fluid">
-            <ul class="navbar-nav">
-                <li>
-                    <a href="#" class="glioperatori">Vedi tutti gli operatori</a>
-                </li>
-                <li>
-                    <a href="#" class="gliutenti">Vedi tutti gli utenti</a>
-                </li>
-                <li>
-                    <a href="#" class="lecategorie">Vedi tutte le categorie</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+
 
     <!--sezione principale, con possibilità di creazione operatore, utente e categorie e mostra tabelle categorie-->
     <div class="container-main">
 
-        <!--crezione operatore, utente e categorie-->
-        <div class="menu">
-            <div class="avatar">
-                <i class="fa-solid fa-user-gear"></i>
-            </div>
-            <div class="actions">
-                <div class="operator">
-                    <a href="form_creazione_operatore.php" alt="crea operatore"><span>Crea Nuovo Operatore</span></a>
-                </div>
-                <div class="user">
-                    <a href="form_creazione_utente.php"><span">Crea Nuovo Utente</a>
-                </div>
-                <div class="category">
-                    <a href="form_creazione_categoria.php"><span >Crea Nuova Categoria</a>
-                </div>
-            </div>
-        </div>
+
+
+
+
 
 
         <!--container delle tabelle di operatori, utenti e categorie-->
         <div class="container-table">
+            <nav class="navbar">
+                <div class="container-fluid">
+                    <ul class="navbar-nav">
+                        <li>
+                            <div class="link"><a href="#" class="glioperatori">Operatori</a></div>
+
+                        </li>
+                        <li>
+                            <div class="link"><a href="#" class="gliutenti">Utenti</a></div>
+
+                        </li>
+                        <li>
+                            <div class="link"><a href="#" class="lecategorie">Categorie</a></div>
+
+                        </li>
+                        <li>
+                            <div class="link"><a href="logout.php"><i class="fa-solid fa-right-from-bracket"></i></a></div>
+
+                        </li>
+                    </ul>
+                </div>
+                <div class="logout">
+
+                </div>
+            </nav>
 
             <!--tabella operatori con toggle-->
             <div class="operatori">
@@ -172,23 +254,7 @@ if (!isset($_SESSION['id'])) {
 
     <!--footer con logo e info-->
     <footer>
-        <div class="ftone">
-            <div class="image">
-                <img src="img/logo-tecnasoft.png" alt="">
-            </div>
-        </div>
-        <div class="fttwo">
-            <div class="mails">
-            </div>
-            <div class="contacts">
-                <h4>staff@tecnasoft.it</h4>
-            </div>
-            <div class="social">
-                <a href="https://it-it.facebook.com/TECNASOFT/"><i class="fa-brands fa-facebook" style="padding: 0 1rem; font-size: 20px;"></i></a>
-                <a href="https://twitter.com/tecnasoft"><i class="fa-brands fa-square-twitter" style="padding: 0 1rem; font-size: 20px;"></i></a>
-                <a href="https://it.linkedin.com/company/tecnasoft?original_referer=https%3A%2F%2Fwww.google.com%2F"><i class="fa-brands fa-linkedin" style="padding: 0 1rem; font-size: 20px;"></i></a>
-            </div>
-        </div>
+
     </footer>
 </div>
 <script src="js/admin.js"></script>

@@ -117,7 +117,6 @@ try {
                     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
                     $mail->send();
-                    echo 'messaggio inviato a utente!';
                 } catch (Exception $e) {
                     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
                 }
@@ -128,13 +127,6 @@ try {
         die();
     }
 }
-//elseif (isset($_POST['text'])){
-//    $ticket_id = $_GET['ticket_id'];
-//    $text = $_POST['text'];
-//    $user_id = $_SESSION['id'];
-//
-//    $sql = "INSERT INTO messages (text, ticket_id, user_id) VALUES ('$text', '$ticket_id', '$user_id')";
-//}
 
 /** @var PDO $dbh */
 $sql = "SELECT messages.id, messages.date, messages.text, messages.ticket_id, messages.operator_id, messages.user_id FROM messages  WHERE ticket_id=" . $_GET['ticket_id'];
@@ -181,12 +173,13 @@ $result = $dbh->query($sql);
         <br>
         <br>
         <div class="answer">
-            <textarea name="text" placeholder="rispondi qui..." ></textarea>
+
 
         </div>
         <div class="button">
             <form method="post">
-
+                <textarea name="text" placeholder="rispondi qui..." ></textarea>
+                <br>
                 <br>
                 <input type="submit" value="Invia">
             </form>
