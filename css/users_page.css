@@ -36,11 +36,12 @@ body {
 }
 
 .avatar {
-    width: 70%;
-    height: 22%;
-    border-radius: 50%;
-    position: relative;
     background: transparent;
+    text-align:center;
+}
+
+.avatar h4 {
+    margin-top: 1rem;
 }
 
 .avatar:hover {
@@ -48,10 +49,8 @@ body {
     transition-duration: 0.7s;
 }
 .avatar i {
-    position: absolute;
-    top: 25%;
-    left: 25%;
     font-size: 100px;
+    text-align:center;
 }
 
 .avatar i:hover {
@@ -93,7 +92,7 @@ input:hover {
 }
 
 select {
-    width: 250px;
+    width: 100%;
     height:30px;
     border-radius: 25px;
     border: 1px solid transparent;
@@ -101,11 +100,12 @@ select {
     opacity: 0.7;
     color: black;
     margin: 0.5rem 0;
+    text-align: center;
 }
 
 select:hover {
     border-radius: 25px;
-    width: 250px;
+    width: 100%;
     height: 30px;
     color:black;
     box-shadow: -1px 4px 16px 8px #9c86bb;
@@ -114,6 +114,7 @@ select:hover {
     transition-duration: 0.5s;
     color:black;
     margin: 0.5rem 0;
+    text-align: center;
 }
 
 option {
@@ -203,3 +204,116 @@ footer {
 .image img {
     width: 100%;
 }
+
+#myBtn {
+    margin-top: 1rem;
+    color: white;
+    height: 30px;
+    background-color: transparent;
+    border: transparent;
+    border-radius: 25px;
+    width: 100%;
+}
+
+#myBtn:hover {
+    margin-top: 1rem;
+    color: black;
+    height: 30px;
+    background-color: white;
+    border: transparent;
+    box-shadow: -1px 4px 16px 8px #9c86bb;
+    transition-duration: 0.7s;
+    border-radius: 25px;
+    width: 100%;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #6e7051;
+    margin: 15% auto; /* 15% from the top and centered */
+    width: 30%; /* Could be more or less, depending on screen size */
+    min-height: 22%;
+    border-radius: 25px;
+}
+
+.modal-form {
+    color: black;
+    border: 1px solid black;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px 0 20px;
+    border-radius: 25px;
+    border: 1px solid transparent;
+    padding-bottom: 25px;
+}
+
+.modal-content:hover {
+    box-shadow: -1px 4px 16px 8px #9c86bb;
+    transition-duration: 0.7s;
+}
+
+.modal-form input {
+    width: 100%;
+    height: 30px;
+    border-radius: 25px;
+    border: 1px solid transparent;
+    text-align: center;
+    margin: 0.7rem 0;
+    color: #565454
+}
+
+.modal-form input:hover {
+    box-shadow: -1px 4px 16px 8px #b39cd3;
+    transition-duration: 0.7s;
+    cursor: pointer;
+    color: #565454
+}
+
+.modal-form button {
+    width: 100%;
+    background-color: transparent;
+    color: #aaa;
+    border: 1px solid transparent;
+}
+
+.modal-form button:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.modal-form span {
+    text-align: end;
+}
+
+
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+

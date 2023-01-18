@@ -39,7 +39,7 @@ if (!isset($_SESSION['id'])) {
     <div class="menu">
         <div class="avatar">
             <i class="fa-solid fa-user-gear"></i>
-            <h3>Benvenuto Admin!</h3>
+            <h4>Benvenuto Admin!</h4>
         </div>
         <div class="actions">
 
@@ -123,11 +123,6 @@ if (!isset($_SESSION['id'])) {
     </div>
 
 
-
-    <!--barra di navigazione per vedere tabelle operatori, utenti e categorie-->
-
-
-    <!--sezione principale, con possibilità di creazione operatore, utente e categorie e mostra tabelle categorie-->
     <div class="container-main">
 
 
@@ -141,16 +136,16 @@ if (!isset($_SESSION['id'])) {
             <nav class="navbar">
                 <div class="container-fluid">
                     <ul class="navbar-nav">
-                        <li>
-                            <div class="link"><a href="#" class="glioperatori">Operatori</a></div>
+                        <li class="glioperatori">
+                            <button>Operatori</button>
 
                         </li>
-                        <li>
-                            <div class="link"><a href="#" class="gliutenti">Utenti</a></div>
+                        <li class="gliutenti">
+                            <button >Utenti</button>
 
                         </li>
-                        <li>
-                            <div class="link"><a href="#" class="lecategorie">Categorie</a></div>
+                        <li class="lecategorie">
+                            <button>Categorie</button>
 
                         </li>
                         <li>
@@ -165,7 +160,7 @@ if (!isset($_SESSION['id'])) {
             </nav>
 
             <!--tabella operatori con toggle-->
-            <div class="operatori">
+            <div class="operatori tabella">
                 <h3>Tutti gli operatori</h3>
                     <div class="container-table one">
                         <div class="row">
@@ -191,7 +186,7 @@ if (!isset($_SESSION['id'])) {
             </div>
 
             <!--tabella utenti con toggle-->
-            <div class="utenti">
+            <div class="utenti tabella">
                 <h3>Tutti gli utenti</h3>
                     <div class="container-table one">
                         <div class="row">
@@ -215,7 +210,7 @@ if (!isset($_SESSION['id'])) {
             </div>
 
             <!--tabella categorie con toggle-->
-            <div class="categorie">
+            <div class="categorie tabella">
                 <h3>Tutte le categorie</h3>
                     <div class="container-table one">
                         <div class="row">

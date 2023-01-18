@@ -49,7 +49,7 @@ if ((isset($_POST['email1'])) && (isset($_POST['password1']))) {
 //            $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
 
         //array associativo che ho definito qui e che richiamo dalla funzione presente in body.php. Serve a richiamare i parametri che voglio far vedere nella mail della creazione dell'operatore
-        $data =['email'=> $_POST['email'], 'password' => $_POST['password']];
+        $data =['email1'=> $_POST['email1'], 'password1' => $_POST['password1']];
 
         //ho creato una variabile con all'interno la funzione che contiene l'array data
         $body= body($data);

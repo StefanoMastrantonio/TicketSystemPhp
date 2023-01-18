@@ -26,7 +26,7 @@ if (!isset($_SESSION['id'])) {
 <div class="container">
     <div class="container-title">
         <div class="title">
-            <h2>Benvenuto Utente!</h2>
+
         </div>
         <div class="logout">
             <a href="logout.php"><i class="fa-solid fa-right-from-bracket"></i></a>
@@ -38,27 +38,39 @@ if (!isset($_SESSION['id'])) {
         <div class="container-ticket">
             <div class="avatar">
                 <i class="fa-solid fa-user"></i>
+                <h4>Benvenuto Utente!</h4>
             </div>
             <div class="ticket-form">
-            <h3><a href="#" class="ticket" style="text-decoration: none;">Inserisci ticket</a></h3>
+                <button id="myBtn" onclick="addCategory()">Inserisci ticket</button>
+
+                <!--Modale Categoria-->
+                <div id="myModal" class="modal">
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <div class="modal-form">
+                            <span class="close">&times;</span>
+                                <form method="post" action="create_ticket.php">
+                                    <input type="text" name="title" id="title" placeholder="Titolo">
+                                    <input type="textarea" name="text" id="text" placeholder="Scrivi qui un messaggio">
+                                    <select name="category_id" id="category">
+                                        <option value="0">Scegli la categoria</option>
+                                        <option value="1">Assistenza Commerciale</option>
+                                        <option value="2">Assistenza Tecnica</option>
+                                    </select>
+                                    <select name="priority" id="priority">
+                                        <option value="0">scegli la priorità</option>
+                                        <option value="1">Bassa</option>
+                                        <option value="2">Media</option>
+                                        <option value="3">Alta</option>
+                                    </select>
+                                    <button type="button" onclick="addTicket()">Crea Nuovo Ticket</button>
+                                </form>
+                        </div>
+                    </div>
+                </div>
                 <div  class="form">
 
-                    <form method="post" action="create_ticket.php">
-                        <input type="text" name="title" placeholder="Titolo">
-                        <input type="textarea" name="text" placeholder="Scrivi qui un messaggio">
-                        <select name="category_id">
-                            <option value="0">Scegli la categoria</option>
-                            <option value="1">Assistenza Commerciale</option>
-                            <option value="2">Assistenza Tecnica</option>
-                        </select>
-                        <select name="priority">
-                            <option value="0">scegli la priorità</option>
-                            <option value="1">Bassa</option>
-                            <option value="2">Media</option>
-                            <option value="3">Alta</option>
-                        </select>
-                        <button type="submit">Submit to another page</button>
-                    </form>
+
                 </div>
             </div>
         </div>
