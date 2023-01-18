@@ -16,6 +16,8 @@ body {
 .container {
     width: 60%;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -300,8 +302,6 @@ footer {
     text-align: end;
 }
 
-
-
 /* The Close Button */
 .close {
     color: #aaa;
@@ -315,5 +315,9 @@ footer {
     color: white;
     text-decoration: none;
     cursor: pointer;
+}
+
+.logout {
+    padding-top: 3rem;
 }
 

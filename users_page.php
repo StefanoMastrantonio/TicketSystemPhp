@@ -24,16 +24,6 @@ if (!isset($_SESSION['id'])) {
 <body>
 <!--Form di invio Ticket a Lista Tickets-->
 <div class="container">
-    <div class="container-title">
-        <div class="title">
-
-        </div>
-        <div class="logout">
-            <a href="logout.php"><i class="fa-solid fa-right-from-bracket"></i></a>
-        </div>
-
-    </div>
-    <br><br>
     <div class="container-main">
         <div class="container-ticket">
             <div class="avatar">
@@ -113,6 +103,10 @@ if (!isset($_SESSION['id'])) {
         }
         ?>
 
+        </div>
+
+        <div class="logout">
+            <a href="logout.php"><i class="fa-solid fa-right-from-bracket"></i></a>
         </div>
     </div>
     <footer>
